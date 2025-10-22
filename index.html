@@ -6,24 +6,14 @@
 <title>FinTech Education - Nền tảng học tập tài chính công nghệ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#ec4899',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
 <style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
 body {
 font-family: 'Inter', sans-serif;
-}
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
--webkit-appearance: none;
-margin: 0;
-}
-input[type="number"] {
--moz-appearance: textfield;
 }
 .custom-scrollbar::-webkit-scrollbar {
 width: 6px;
@@ -38,1488 +28,436 @@ border-radius: 3px;
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
 background: #94a3b8;
 }
-.custom-checkbox {
-position: relative;
-display: inline-block;
-width: 18px;
-height: 18px;
-}
-.custom-checkbox input {
-opacity: 0;
-width: 0;
-height: 0;
-}
-.checkmark {
-position: absolute;
-top: 0;
-left: 0;
-width: 18px;
-height: 18px;
-background-color: #fff;
-border: 2px solid #cbd5e1;
-border-radius: 4px;
-transition: all 0.2s ease;
-}
-.custom-checkbox input:checked ~ .checkmark {
-background-color: #ec4899;
-border-color: #ec4899;
-}
-.checkmark:after {
-content: "";
-position: absolute;
-display: none;
-}
-.custom-checkbox input:checked ~ .checkmark:after {
-display: block;
-}
-.custom-checkbox .checkmark:after {
-left: 5px;
-top: 1px;
-width: 6px;
-height: 10px;
-border: solid white;
-border-width: 0 2px 2px 0;
-transform: rotate(45deg);
-}
-.custom-switch {
-position: relative;
-display: inline-block;
-width: 44px;
-height: 24px;
-}
-.custom-switch input {
-opacity: 0;
-width: 0;
-height: 0;
-}
-.slider {
-position: absolute;
-cursor: pointer;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-color: #e2e8f0;
-transition: .4s;
-border-radius: 24px;
-}
-.slider:before {
-position: absolute;
-content: "";
-height: 18px;
-width: 18px;
-left: 3px;
-bottom: 3px;
-background-color: white;
-transition: .4s;
-border-radius: 50%;
-}
-.custom-switch input:checked + .slider {
-background-color: #ec4899;
-}
-.custom-switch input:checked + .slider:before {
-transform: translateX(20px);
-}
-.custom-range {
--webkit-appearance: none;
-width: 100%;
-height: 6px;
-border-radius: 3px;
-background: #e2e8f0;
-outline: none;
-}
-.custom-range::-webkit-slider-thumb {
--webkit-appearance: none;
-appearance: none;
-width: 18px;
-height: 18px;
-border-radius: 50%;
-background: #ec4899;
-cursor: pointer;
-border: 2px solid #fff;
-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-.custom-range::-moz-range-thumb {
-width: 18px;
-height: 18px;
-border-radius: 50%;
-background: #ec4899;
-cursor: pointer;
-border: 2px solid #fff;
-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-.hero-section {
-background-image: url('https://readdy.ai/api/search-image?query=A%20modern%20fintech%20education%20platform%20with%20a%20clean%20design.%20The%20image%20shows%20a%20soft%20white%20to%20light%20pink%20gradient%20background%20on%20the%20left%20side%20that%20seamlessly%20transitions%20to%20a%20visualization%20of%20financial%20data%2C%20charts%2C%20and%20digital%20payment%20icons%20on%20the%20right.%20The%20background%20should%20be%20very%20light%20and%20subtle%2C%20ensuring%20dark%20text%20is%20clearly%20readable%20on%20the%20left%20side.%20Include%20subtle%20financial%20technology%20elements%20like%20graphs%2C%20coins%2C%20and%20digital%20wallets%20with%20minimal%20opacity%20and%20light%20pink%20accents.&width=1920&height=600&seq=fintech-hero-light&orientation=landscape');
-background-size: cover;
-background-position: center;
-}
 </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
 <!-- Header -->
 <header class="bg-white shadow-sm sticky top-0 z-50">
 <div class="flex items-center justify-between px-4 py-3">
-<div class="flex items-center space-x-8">
-<a href="#" class="flex items-center">
-<img src="https://static.readdy.ai/image/463e20087823e41977ed319075af2fbf/4b4cac66d51e9f67aef24614e3cbb06a.png" alt="BK Star Logo" class="h-8">
-</a>
-<nav class="hidden md:flex space-x-6">
-<a href="#" class="text-sm font-medium text-gray-900 hover:text-primary">Thư viện</a>
-<a href="#" class="text-sm font-medium text-gray-500 hover:text-primary">Công cụ</a>
-<a href="#" class="text-sm font-medium text-gray-500 hover:text-primary">Tin tức</a>
-<a href="#" class="text-sm font-medium text-gray-500 hover:text-primary">Khóa học</a>
-<a href="#" class="text-sm font-medium text-gray-500 hover:text-primary">Cộng đồng</a>
+<nav class="flex space-x-6">
+<a href="#" class="text-sm font-medium text-gray-900 hover:text-primary">Trang chủ</a>
+<a href="expense-tracker.html" class="text-sm font-medium text-gray-500 hover:text-primary">Quản lý Chi tiêu</a>
+<a href="expense-statistics.html" class="text-sm font-medium text-gray-500 hover:text-primary">Thống kê</a>
+<a href="chatbot-advisor.html" class="text-sm font-medium text-gray-500 hover:text-primary">Tư vấn</a>
+<a href="investment-portfolio.html" class="text-sm font-medium text-gray-500 hover:text-primary">Đầu tư</a>
+<a href="courses.html" class="text-sm font-medium text-gray-500 hover:text-primary">Khóa học</a>
 </nav>
-</div>
 <div class="flex items-center space-x-4">
-<div class="relative">
-<input type="text" placeholder="Tìm kiếm..." class="w-40 md:w-64 pl-10 pr-4 py-2 text-sm bg-gray-100 border-none rounded-full focus:outline-none focus:ring-2 focus:ring-primary/20">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<i class="ri-search-line text-gray-400"></i>
-</div>
-</div>
-<div class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 cursor-pointer relative">
-<i class="ri-notification-3-line text-gray-600"></i>
-<span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
-</div>
-<div class="flex items-center space-x-2 cursor-pointer relative" id="userProfileButton">
 <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-sm font-medium">VM</div>
 <span class="text-sm font-medium hidden md:block">Vũ Mạnh</span>
-<div id="userDropdownMenu" class="hidden absolute right-0 top-full mt-2 w-56 bg-white rounded-lg shadow-lg py-2 z-50">
-<a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-<div class="w-5 h-5 mr-3 flex items-center justify-center text-gray-400">
-<i class="ri-user-line"></i>
-</div>
-Thông tin cá nhân
-</a>
-<a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-<div class="w-5 h-5 mr-3 flex items-center justify-center text-gray-400">
-<i class="ri-settings-3-line"></i>
-</div>
-Cài đặt tài khoản
-</a>
-<a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-<div class="w-5 h-5 mr-3 flex items-center justify-center text-gray-400">
-<i class="ri-exchange-dollar-line"></i>
-</div>
-Quản lý giao dịch
-</a>
-<a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-<div class="w-5 h-5 mr-3 flex items-center justify-center text-gray-400">
-<i class="ri-notification-4-line"></i>
-</div>
-Thông báo của tôi
-</a>
-<a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-<div class="w-5 h-5 mr-3 flex items-center justify-center text-gray-400">
-<i class="ri-question-line"></i>
-</div>
-Trợ giúp
-</a>
-<div class="h-px bg-gray-200 my-2"></div>
-<a href="#" class="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-50">
-<div class="w-5 h-5 mr-3 flex items-center justify-center text-red-600">
-<i class="ri-logout-box-r-line"></i>
-</div>
-Đăng xuất
-</a>
-</div>
-</div>
-<button class="md:hidden w-8 h-8 flex items-center justify-center">
-<i class="ri-menu-line text-lg text-gray-700"></i>
-</button>
 </div>
 </div>
 </header>
-<div class="flex">
-<!-- Sidebar -->
-<aside class="w-64 hidden md:block bg-white shadow-sm h-[calc(100vh-56px)] sticky top-[56px] overflow-y-auto custom-scrollbar">
-<div class="p-4">
-<div class="mb-6">
-<h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Chính</h3>
-<ul class="space-y-1">
-<li>
-<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg bg-primary/10 text-primary">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-home-4-line"></i>
-</div>
-Trang chủ
-</a>
-</li>
-<li>
-<a href="https://readdy.ai/home/f8968c68-cdaa-4a66-90c6-65a961131240/11769107-c5b3-4de8-8a68-ad3e81fb7d24" data-readdy="true" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-book-2-line"></i>
-</div>
-Thư viện Kiến thức
-</a>
-</li>
-<li>
-<a href="expense-tracker.html" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-money-dollar-circle-line"></i>
-</div>
-Quản lý Tài chính
-</a>
-</li>
-<li>
-<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-calculator-line"></i>
-</div>
-Công cụ Tính toán
-</a>
-</li>
-<li>
-<a href="investment-portfolio.html" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-line-chart-line"></i>
-</div>
-Danh mục Đầu tư
-</a>
-</li>
-<li>
-<a href="courses.html" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-graduation-cap-line"></i>
-</div>
-Khóa học
-</a>
-</li>
-<li>
-<a href="chatbot-advisor.html" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-robot-line"></i>
-</div>
-AI Tư vấn
-</a>
-</li>
-<li>
-<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-newspaper-line"></i>
-</div>
-Tin tức Fintech
-</a>
-</li>
-<li>
-<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-graduation-cap-line"></i>
-</div>
-Khóa học
-</a>
-</li>
-</ul>
-</div>
-<div class="mb-6">
-<h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Tiện ích</h3>
-<ul class="space-y-1">
-<li>
-<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-calendar-line"></i>
-</div>
-Lịch tài chính
-</a>
-</li>
-<li>
-<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-sticky-note-line"></i>
-</div>
-Ghi chú
-</a>
-</li>
-<li>
-<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-team-line"></i>
-</div>
-Cộng đồng
-</a>
-</li>
-</ul>
-</div>
-<div>
-<h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Cài đặt</h3>
-<ul class="space-y-1">
-<li>
-<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-user-settings-line"></i>
-</div>
-Tài khoản
-</a>
-</li>
-<li>
-<div class="flex items-center justify-between px-3 py-2 text-sm font-medium rounded-lg text-gray-700">
-<div class="flex items-center">
-<div class="w-5 h-5 mr-3 flex items-center justify-center">
-<i class="ri-moon-line"></i>
-</div>
-Chế độ tối
-</div>
-<label class="custom-switch">
-<input type="checkbox">
-<span class="slider"></span>
-</label>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</aside>
+
 <!-- Main Content -->
-<main class="flex-1 min-w-0">
-<!-- Hero Section -->
-<section class="hero-section w-full">
-<div class="container mx-auto px-4 py-16 md:py-24">
-<div class="max-w-2xl">
-<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Nền tảng học tập tài chính công nghệ hàng đầu Việt Nam</h1>
-<p class="text-lg text-gray-700 mb-8">Khám phá kiến thức Fintech, quản lý tài chính cá nhân và nâng cao kỹ năng đầu tư của bạn với các công cụ hiện đại.</p>
-<div class="flex flex-col sm:flex-row gap-4">
-<button class="!rounded-button bg-primary text-white font-medium px-6 py-3 shadow-lg hover:shadow-xl transition whitespace-nowrap">Bắt đầu miễn phí</button>
-<button class="!rounded-button bg-gray-900 text-white font-medium px-6 py-3 hover:bg-gray-800 transition whitespace-nowrap">Xem demo</button>
+<main class="min-w-0">
+<!-- Dashboard Overview -->
+<div class="p-6">
+<!-- Welcome Section -->
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-gray-900 mb-2">Chào mừng trở lại, Vũ Mạnh!</h1>
+<p class="text-gray-600">Tổng quan về tình hình tài chính và hoạt động của bạn</p>
+</div>
+
+<!-- Quick Stats -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="bg-white rounded-lg shadow-sm p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm text-gray-500 mb-1">Tổng tài sản</p>
+<p class="text-2xl font-bold text-gray-900">125.500.000 ₫</p>
+</div>
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-500">
+<i class="ri-wallet-3-line text-xl"></i>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-center text-sm text-green-500">
+<i class="ri-arrow-up-line mr-1"></i>
+<span>+8.5% tháng này</span>
 </div>
 </div>
 </div>
-</section>
-<!-- Features Section -->
-<section class="py-16 bg-white">
-<div class="container mx-auto px-4">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold text-gray-900 mb-4">Tính năng nổi bật</h2>
-<p class="text-lg text-gray-600 max-w-2xl mx-auto">Khám phá các công cụ và tài nguyên giúp bạn nâng cao kiến thức tài chính và quản lý hiệu quả.</p>
+
+<div class="bg-white rounded-lg shadow-sm p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm text-gray-500 mb-1">Chi tiêu tháng này</p>
+<p class="text-2xl font-bold text-gray-900">9.850.000 ₫</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Feature 1 -->
-<div class="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-<div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mb-5">
-<i class="ri-book-open-line text-xl"></i>
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-500">
+<i class="ri-arrow-down-line text-xl"></i>
 </div>
-<h3 class="text-xl font-semibold text-gray-900 mb-3">Thư viện Kiến thức</h3>
-<p class="text-gray-600 mb-4">Kho tài liệu phong phú về thanh toán điện tử, ngân hàng số, blockchain và nhiều chủ đề Fintech khác.</p>
-<a href="#" class="text-primary font-medium flex items-center">
-Khám phá thư viện
-<i class="ri-arrow-right-line ml-1"></i>
-</a>
 </div>
-<!-- Feature 2 -->
-<div class="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-<div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mb-5">
-<i class="ri-money-dollar-circle-line text-xl"></i>
+<div class="mt-4">
+<div class="flex items-center text-sm text-red-500">
+<i class="ri-arrow-up-line mr-1"></i>
+<span>+8% so với tháng trước</span>
 </div>
-<h3 class="text-xl font-semibold text-gray-900 mb-3">Quản lý Tài chính</h3>
-<p class="text-gray-600 mb-4">Theo dõi thu chi, phân loại tự động và phân tích chi tiêu thông qua biểu đồ trực quan.</p>
-<a href="expense-tracker.html" class="text-primary font-medium flex items-center">
-Bắt đầu quản lý
-<i class="ri-arrow-right-line ml-1"></i>
-</a>
 </div>
-<!-- Feature 3 -->
-<div class="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-<div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mb-5">
-<i class="ri-calculator-line text-xl"></i>
 </div>
-<h3 class="text-xl font-semibold text-gray-900 mb-3">Công cụ Tính toán</h3>
-<p class="text-gray-600 mb-4">Tính lãi suất kép, so sánh các gói đầu tư và lập kế hoạch tài chính tương lai.</p>
-<a href="#" class="text-primary font-medium flex items-center">
-Sử dụng công cụ
-<i class="ri-arrow-right-line ml-1"></i>
-</a>
+
+<div class="bg-white rounded-lg shadow-sm p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm text-gray-500 mb-1">Lợi nhuận đầu tư</p>
+<p class="text-2xl font-bold text-gray-900">+15.500.000 ₫</p>
 </div>
-<!-- Feature 4 -->
-<div class="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-<div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mb-5">
-<i class="ri-newspaper-line text-xl"></i>
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-100 text-blue-500">
+<i class="ri-line-chart-line text-xl"></i>
 </div>
-<h3 class="text-xl font-semibold text-gray-900 mb-3">Tin tức Fintech</h3>
-<p class="text-gray-600 mb-4">Cập nhật tin tức mới nhất từ các nền tảng công nghệ tài chính và xu hướng thị trường.</p>
-<a href="#" class="text-primary font-medium flex items-center">
-Đọc tin tức
-<i class="ri-arrow-right-line ml-1"></i>
-</a>
 </div>
-<!-- Feature 5 -->
-<div class="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-<div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mb-5">
+<div class="mt-4">
+<div class="flex items-center text-sm text-blue-500">
+<i class="ri-arrow-up-line mr-1"></i>
+<span>+14.1% tổng thể</span>
+</div>
+</div>
+</div>
+
+<div class="bg-white rounded-lg shadow-sm p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm text-gray-500 mb-1">Khóa học hoàn thành</p>
+<p class="text-2xl font-bold text-gray-900">8</p>
+</div>
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-purple-100 text-purple-500">
 <i class="ri-graduation-cap-line text-xl"></i>
 </div>
-<h3 class="text-xl font-semibold text-gray-900 mb-3">Khóa học & Bài kiểm tra</h3>
-<p class="text-gray-600 mb-4">Học từ cơ bản đến nâng cao về Fintech với các bài kiểm tra và huy hiệu thành tích.</p>
-<a href="#" class="text-primary font-medium flex items-center">
-Tham gia học
-<i class="ri-arrow-right-line ml-1"></i>
-</a>
 </div>
-<!-- Feature 6 -->
-<div class="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-<div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mb-5">
-<i class="ri-team-line text-xl"></i>
-</div>
-<h3 class="text-xl font-semibold text-gray-900 mb-3">Cộng đồng & Tư vấn</h3>
-<p class="text-gray-600 mb-4">Tham gia diễn đàn, đặt câu hỏi và nhận tư vấn từ chuyên gia trong lĩnh vực tài chính.</p>
-<a href="#" class="text-primary font-medium flex items-center">
-Tham gia ngay
-<i class="ri-arrow-right-line ml-1"></i>
-</a>
+<div class="mt-4">
+<div class="flex items-center text-sm text-purple-500">
+<i class="ri-check-line mr-1"></i>
+<span>Xuất sắc</span>
 </div>
 </div>
 </div>
-</section>
-<!-- Financial Dashboard Preview -->
-<section class="py-16 bg-gray-50">
-<div class="container mx-auto px-4">
-<div class="flex flex-col md:flex-row items-center gap-12">
-<div class="md:w-1/2">
-<h2 class="text-3xl font-bold text-gray-900 mb-6">Quản lý tài chính cá nhân thông minh</h2>
-<p class="text-lg text-gray-600 mb-6">Theo dõi chi tiêu, phân tích xu hướng và đạt được mục tiêu tài chính với công cụ quản lý trực quan.</p>
-<div class="space-y-4 mb-8">
-<div class="flex items-start">
-<div class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 text-primary mt-0.5 mr-3 flex-shrink-0">
-<i class="ri-check-line"></i>
 </div>
-<p class="text-gray-700">Ghi chép thu chi hàng ngày với giao diện đơn giản</p>
-</div>
-<div class="flex items-start">
-<div class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 text-primary mt-0.5 mr-3 flex-shrink-0">
-<i class="ri-check-line"></i>
-</div>
-<p class="text-gray-700">Phân loại chi tiêu tự động theo nhiều danh mục</p>
-</div>
-<div class="flex items-start">
-<div class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 text-primary mt-0.5 mr-3 flex-shrink-0">
-<i class="ri-check-line"></i>
-</div>
-<p class="text-gray-700">Biểu đồ phân tích chi tiết về dòng tiền và tỷ lệ chi tiêu</p>
-</div>
-<div class="flex items-start">
-<div class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 text-primary mt-0.5 mr-3 flex-shrink-0">
-<i class="ri-check-line"></i>
-</div>
-<p class="text-gray-700">Thiết lập mục tiêu tiết kiệm và nhận thông báo khi vượt ngân sách</p>
-</div>
-</div>
-<button class="!rounded-button bg-primary text-white font-medium px-6 py-3 shadow-md hover:shadow-lg transition whitespace-nowrap">Dùng thử miễn phí</button>
-</div>
-<div class="md:w-1/2">
-<div class="bg-white rounded-lg shadow-lg p-6">
-<div class="flex items-center justify-between mb-6">
-<h3 class="text-lg font-semibold text-gray-900">Tổng quan tài chính</h3>
-<div class="flex items-center space-x-2">
-<button class="text-gray-500 hover:text-gray-700">
-<i class="ri-download-line"></i>
-</button>
-<button class="text-gray-500 hover:text-gray-700">
-<i class="ri-more-2-fill"></i>
-</button>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-4 mb-6">
-<div class="bg-gray-50 rounded-lg p-4">
-<p class="text-sm text-gray-500 mb-1">Thu nhập tháng 6</p>
-<p class="text-xl font-semibold text-gray-900">15.200.000 ₫</p>
-<div class="flex items-center text-green-500 text-sm mt-1">
-<i class="ri-arrow-up-line mr-1"></i>
-<span>12% so với tháng trước</span>
-</div>
-</div>
-<div class="bg-gray-50 rounded-lg p-4">
-<p class="text-sm text-gray-500 mb-1">Chi tiêu tháng 6</p>
-<p class="text-xl font-semibold text-gray-900">9.850.000 ₫</p>
-<div class="flex items-center text-red-500 text-sm mt-1">
-<i class="ri-arrow-up-line mr-1"></i>
-<span>8% so với tháng trước</span>
-</div>
-</div>
-</div>
-<div class="mb-6">
-<div class="flex items-center justify-between mb-4">
-<h4 class="font-medium text-gray-900">Phân bổ chi tiêu</h4>
-<div class="text-sm text-gray-500">Tháng 6, 2025</div>
-</div>
-<div id="expense-chart" class="h-64"></div>
+
+<!-- Quick Actions -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+<!-- Quản lý Chi tiêu -->
+<div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition cursor-pointer" onclick="window.location.href='expense-tracker.html'">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-primary mr-4">
+<i class="ri-money-dollar-circle-line text-xl"></i>
 </div>
 <div>
-<div class="flex items-center justify-between mb-4">
-<h4 class="font-medium text-gray-900">Giao dịch gần đây</h4>
-<a href="#" class="text-sm text-primary">Xem tất cả</a>
+<h3 class="text-lg font-semibold text-gray-900">Quản lý Chi tiêu</h3>
+<p class="text-sm text-gray-500">Theo dõi và phân tích chi tiêu</p>
 </div>
-<div class="space-y-3">
-<div class="flex items-center justify-between py-2 border-b border-gray-100">
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-gray-600">Chi tiêu hôm nay:</span>
+<span class="font-medium">450.000 ₫</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-600">Giao dịch mới:</span>
+<span class="font-medium text-primary">3</span>
+</div>
+</div>
+<div class="mt-4 flex items-center text-primary text-sm font-medium">
+<span>Thêm chi tiêu mới</span>
+<i class="ri-arrow-right-line ml-1"></i>
+</div>
+</div>
+
+<!-- Thống kê -->
+<div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition cursor-pointer" onclick="window.location.href='expense-statistics.html'">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mr-4">
+<i class="ri-bar-chart-line text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-900">Thống kê</h3>
+<p class="text-sm text-gray-500">Phân tích tài chính chi tiết</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-gray-600">Xu hướng tháng:</span>
+<span class="font-medium text-red-500">+8%</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-600">Danh mục chính:</span>
+<span class="font-medium">Ăn uống</span>
+</div>
+</div>
+<div class="mt-4 flex items-center text-blue-500 text-sm font-medium">
+<span>Xem báo cáo</span>
+<i class="ri-arrow-right-line ml-1"></i>
+</div>
+</div>
+
+<!-- Tư vấn AI -->
+<div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition cursor-pointer" onclick="window.location.href='chatbot-advisor.html'">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-500 mr-4">
+<i class="ri-robot-line text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-900">AI Tư vấn</h3>
+<p class="text-sm text-gray-500">Chuyên gia AI 24/7</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-gray-600">Trạng thái:</span>
+<span class="font-medium text-green-500">Online</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-600">Câu hỏi hôm nay:</span>
+<span class="font-medium">5</span>
+</div>
+</div>
+<div class="mt-4 flex items-center text-green-500 text-sm font-medium">
+<span>Bắt đầu chat</span>
+<i class="ri-arrow-right-line ml-1"></i>
+</div>
+</div>
+
+<!-- Đầu tư -->
+<div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition cursor-pointer" onclick="window.location.href='investment-portfolio.html'">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-purple-100 text-purple-500 mr-4">
+<i class="ri-line-chart-line text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-900">Danh mục Đầu tư</h3>
+<p class="text-sm text-gray-500">Theo dõi đầu tư</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-gray-600">Lợi nhuận hôm nay:</span>
+<span class="font-medium text-green-500">+2.350.000 ₫</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-600">Tổng đầu tư:</span>
+<span class="font-medium">12 khoản</span>
+</div>
+</div>
+<div class="mt-4 flex items-center text-purple-500 text-sm font-medium">
+<span>Xem danh mục</span>
+<i class="ri-arrow-right-line ml-1"></i>
+</div>
+</div>
+
+<!-- Khóa học -->
+<div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition cursor-pointer" onclick="window.location.href='courses.html'">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-orange-100 text-orange-500 mr-4">
+<i class="ri-graduation-cap-line text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-900">Khóa học</h3>
+<p class="text-sm text-gray-500">Học tập và phát triển</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-gray-600">Đang học:</span>
+<span class="font-medium">3 khóa</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-600">Hoàn thành:</span>
+<span class="font-medium">8 khóa</span>
+</div>
+</div>
+<div class="mt-4 flex items-center text-orange-500 text-sm font-medium">
+<span>Tiếp tục học</span>
+<i class="ri-arrow-right-line ml-1"></i>
+</div>
+</div>
+
+<!-- Công cụ Tính toán -->
+<div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mr-4">
+<i class="ri-calculator-line text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-900">Công cụ Tính toán</h3>
+<p class="text-sm text-gray-500">Tính toán tài chính</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-gray-600">Lãi suất kép:</span>
+<span class="font-medium">Có sẵn</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-600">Tính khoản vay:</span>
+<span class="font-medium">Có sẵn</span>
+</div>
+</div>
+<div class="mt-4 flex items-center text-indigo-500 text-sm font-medium">
+<span>Sử dụng công cụ</span>
+<i class="ri-arrow-right-line ml-1"></i>
+</div>
+</div>
+</div>
+
+<!-- Recent Activity -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+<!-- Recent Transactions -->
+<div class="bg-white rounded-lg shadow-sm p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-semibold text-gray-900">Giao dịch gần đây</h3>
+<a href="expense-tracker.html" class="text-primary hover:text-primary/80 text-sm font-medium">Xem tất cả</a>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between py-3 border-b border-gray-100">
 <div class="flex items-center">
-<div class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mr-3">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mr-3">
 <i class="ri-shopping-bag-line"></i>
 </div>
 <div>
 <p class="font-medium text-gray-900">Siêu thị Vinmart</p>
-<p class="text-xs text-gray-500">26/06/2025</p>
+<p class="text-sm text-gray-500">Hôm nay, 14:30</p>
 </div>
 </div>
 <p class="font-medium text-red-500">-650.000 ₫</p>
 </div>
-<div class="flex items-center justify-between py-2 border-b border-gray-100">
+<div class="flex items-center justify-between py-3 border-b border-gray-100">
 <div class="flex items-center">
-<div class="w-8 h-8 flex items-center justify-center rounded-full bg-green-100 text-green-500 mr-3">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-100 text-green-500 mr-3">
 <i class="ri-bank-line"></i>
 </div>
 <div>
-<p class="font-medium text-gray-900">Lương tháng 6</p>
-<p class="text-xs text-gray-500">25/06/2025</p>
+<p class="font-medium text-gray-900">Lương tháng 1</p>
+<p class="text-sm text-gray-500">Hôm nay, 09:00</p>
 </div>
 </div>
 <p class="font-medium text-green-500">+15.200.000 ₫</p>
 </div>
-<div class="flex items-center justify-between py-2 border-b border-gray-100">
+<div class="flex items-center justify-between py-3 border-b border-gray-100">
 <div class="flex items-center">
-<div class="w-8 h-8 flex items-center justify-center rounded-full bg-orange-100 text-orange-500 mr-3">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-orange-100 text-orange-500 mr-3">
 <i class="ri-restaurant-line"></i>
 </div>
 <div>
-<p class="font-medium text-gray-900">Nhà hàng Phở 24</p>
-<p class="text-xs text-gray-500">24/06/2025</p>
+<p class="font-medium text-gray-900">Nhà hàng ABC</p>
+<p class="text-sm text-gray-500">Hôm qua, 19:45</p>
 </div>
 </div>
 <p class="font-medium text-red-500">-180.000 ₫</p>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Financial Tools Section -->
-<section class="py-16 bg-white">
-<div class="container mx-auto px-4">
-<div class="text-center mb-12">
-<h2 class="text-3xl font-bold text-gray-900 mb-4">Công cụ tính toán tài chính</h2>
-<p class="text-lg text-gray-600 max-w-2xl mx-auto">Các công cụ hỗ trợ tính toán chính xác giúp bạn đưa ra quyết định tài chính thông minh.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Tool 1: Compound Interest -->
-<div class="bg-gray-50 rounded-lg shadow-sm p-6">
-<div class="flex items-center justify-between mb-4">
-<h3 class="text-xl font-semibold text-gray-900">Lãi suất kép</h3>
-<div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">
-<i class="ri-line-chart-line text-lg"></i>
-</div>
-</div>
-<div class="space-y-4 mb-6">
-<div>
-<label class="block text-sm font-medium text-gray-700 mb-1">Số tiền ban đầu</label>
-<div class="relative">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<span class="text-gray-500">₫</span>
-</div>
-<input type="text" value="10,000,000" class="w-full pl-8 pr-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary text-gray-900">
-</div>
-</div>
-<div>
-<label class="block text-sm font-medium text-gray-700 mb-1">Lãi suất hàng năm (%)</label>
-<input type="number" value="7.5" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary text-gray-900">
-</div>
-<div>
-<label class="block text-sm font-medium text-gray-700 mb-1">Thời gian (năm)</label>
-<input type="range" min="1" max="30" value="5" class="custom-range mb-1">
-<div class="flex justify-between text-xs text-gray-500">
-<span>1</span>
-<span>5 năm</span>
-<span>30</span>
-</div>
-</div>
-</div>
-<div class="bg-white rounded-lg p-4 border border-gray-200 mb-4">
-<div class="flex justify-between mb-2">
-<span class="text-gray-600">Giá trị tương lai:</span>
-<span class="font-semibold text-gray-900">14,356,293 ₫</span>
-</div>
-<div class="flex justify-between">
-<span class="text-gray-600">Lãi:</span>
-<span class="font-semibold text-green-600">+4,356,293 ₫</span>
-</div>
-</div>
-<button class="w-full !rounded-button bg-primary text-white font-medium py-2.5 shadow hover:shadow-md transition whitespace-nowrap">Tính toán lại</button>
-</div>
-<!-- Tool 2: Loan Calculator -->
-<div class="bg-gray-50 rounded-lg shadow-sm p-6">
-<div class="flex items-center justify-between mb-4">
-<h3 class="text-xl font-semibold text-gray-900">Tính khoản vay</h3>
-<div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">
-<i class="ri-bank-card-line text-lg"></i>
-</div>
-</div>
-<div class="space-y-4 mb-6">
-<div>
-<label class="block text-sm font-medium text-gray-700 mb-1">Số tiền vay</label>
-<div class="relative">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<span class="text-gray-500">₫</span>
-</div>
-<input type="text" value="500,000,000" class="w-full pl-8 pr-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary text-gray-900">
-</div>
-</div>
-<div>
-<label class="block text-sm font-medium text-gray-700 mb-1">Lãi suất hàng năm (%)</label>
-<input type="number" value="8.5" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary text-gray-900">
-</div>
-<div>
-<label class="block text-sm font-medium text-gray-700 mb-1">Thời hạn vay (năm)</label>
-<div class="flex items-center space-x-4">
-<button class="px-4 py-2 rounded bg-white border border-gray-300 text-gray-700 hover:bg-gray-100 whitespace-nowrap">5</button>
-<button class="px-4 py-2 rounded bg-primary text-white hover:bg-primary/90 whitespace-nowrap">10</button>
-<button class="px-4 py-2 rounded bg-white border border-gray-300 text-gray-700 hover:bg-gray-100 whitespace-nowrap">15</button>
-<button class="px-4 py-2 rounded bg-white border border-gray-300 text-gray-700 hover:bg-gray-100 whitespace-nowrap">20</button>
-</div>
-</div>
-</div>
-<div class="bg-white rounded-lg p-4 border border-gray-200 mb-4">
-<div class="flex justify-between mb-2">
-<span class="text-gray-600">Trả hàng tháng:</span>
-<span class="font-semibold text-gray-900">6,187,500 ₫</span>
-</div>
-<div class="flex justify-between mb-2">
-<span class="text-gray-600">Tổng tiền trả:</span>
-<span class="font-semibold text-gray-900">742,500,000 ₫</span>
-</div>
-<div class="flex justify-between">
-<span class="text-gray-600">Tổng tiền lãi:</span>
-<span class="font-semibold text-orange-600">242,500,000 ₫</span>
-</div>
-</div>
-<button class="w-full !rounded-button bg-primary text-white font-medium py-2.5 shadow hover:shadow-md transition whitespace-nowrap">Tính toán lại</button>
-</div>
-<!-- Tool 3: Investment Comparison -->
-<div class="bg-gray-50 rounded-lg shadow-sm p-6">
-<div class="flex items-center justify-between mb-4">
-<h3 class="text-xl font-semibold text-gray-900">So sánh đầu tư</h3>
-<div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">
-<i class="ri-scales-3-line text-lg"></i>
-</div>
-</div>
-<div class="space-y-4 mb-6">
-<div class="flex items-center justify-between bg-white p-3 rounded-lg border border-gray-200">
+<div class="flex items-center justify-between py-3">
 <div class="flex items-center">
-<label class="custom-checkbox mr-3">
-<input type="checkbox" checked>
-<span class="checkmark"></span>
-</label>
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-purple-100 text-purple-500 mr-3">
+<i class="ri-gas-station-line"></i>
+</div>
 <div>
-<p class="font-medium text-gray-900">Tiết kiệm ngân hàng</p>
-<p class="text-xs text-gray-500">Lãi suất: 5.5%/năm</p>
+<p class="font-medium text-gray-900">Xăng xe</p>
+<p class="text-sm text-gray-500">Hôm qua, 17:20</p>
+</div>
+</div>
+<p class="font-medium text-red-500">-200.000 ₫</p>
 </div>
 </div>
 </div>
-<div class="flex items-center justify-between bg-white p-3 rounded-lg border border-gray-200">
+
+<!-- Investment Performance -->
+<div class="bg-white rounded-lg shadow-sm p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-semibold text-gray-900">Hiệu suất đầu tư</h3>
+<a href="investment-portfolio.html" class="text-primary hover:text-primary/80 text-sm font-medium">Xem chi tiết</a>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
 <div class="flex items-center">
-<label class="custom-checkbox mr-3">
-<input type="checkbox" checked>
-<span class="checkmark"></span>
-</label>
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-green-100 text-green-500 mr-3">
+<span class="text-sm font-bold">V</span>
+</div>
 <div>
-<p class="font-medium text-gray-900">Trái phiếu doanh nghiệp</p>
-<p class="text-xs text-gray-500">Lãi suất: 8.2%/năm</p>
+<p class="font-medium text-gray-900">VIC - Vingroup</p>
+<p class="text-sm text-gray-500">1,000 cổ phiếu</p>
 </div>
 </div>
+<div class="text-right">
+<p class="font-semibold text-green-600">+5.2%</p>
+<p class="text-sm text-gray-500">+2.100.000 ₫</p>
 </div>
-<div class="flex items-center justify-between bg-white p-3 rounded-lg border border-gray-200">
+</div>
+<div class="flex items-center justify-between">
 <div class="flex items-center">
-<label class="custom-checkbox mr-3">
-<input type="checkbox" checked>
-<span class="checkmark"></span>
-</label>
-<div>
-<p class="font-medium text-gray-900">Quỹ ETF VN30</p>
-<p class="text-xs text-gray-500">Lợi nhuận trung bình: 10.5%/năm</p>
-</div>
-</div>
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mr-3">
+<span class="text-sm font-bold">V</span>
 </div>
 <div>
-<label class="block text-sm font-medium text-gray-700 mb-1">Số tiền đầu tư</label>
-<div class="relative">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<span class="text-gray-500">₫</span>
-</div>
-<input type="text" value="100,000,000" class="w-full pl-8 pr-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary text-gray-900">
+<p class="font-medium text-gray-900">VCB - Vietcombank</p>
+<p class="text-sm text-gray-500">500 cổ phiếu</p>
 </div>
 </div>
-</div>
-<div id="investment-chart" class="h-48 mb-4"></div>
-<button class="w-full !rounded-button bg-primary text-white font-medium py-2.5 shadow hover:shadow-md transition whitespace-nowrap">So sánh chi tiết</button>
-</div>
-</div>
-</div>
-</section>
-<!-- Library Section -->
-<section class="py-16 bg-gray-50">
-<div class="container mx-auto px-4">
-<div class="text-center mb-12">
-<h2 class="text-3xl font-bold text-gray-900 mb-4">Thư viện kiến thức Fintech</h2>
-<p class="text-lg text-gray-600 max-w-2xl mx-auto">Khám phá kho tài liệu đa dạng về công nghệ tài chính, từ cơ bản đến chuyên sâu.</p>
-</div>
-<div class="flex flex-col md:flex-row gap-8 mb-12">
-<div class="md:w-1/4">
-<div class="bg-white rounded-lg shadow-sm p-4 sticky top-[72px]">
-<h3 class="font-semibold text-gray-900 mb-4">Danh mục</h3>
-<ul class="space-y-2">
-<li>
-<a href="#" class="flex items-center text-primary font-medium">
-<span class="w-1.5 h-1.5 bg-primary rounded-full mr-2"></span>
-Thanh toán điện tử
-</a>
-</li>
-<li>
-<a href="#" class="flex items-center text-gray-700 hover:text-primary">
-<span class="w-1.5 h-1.5 bg-gray-300 rounded-full mr-2"></span>
-Ngân hàng số
-</a>
-</li>
-<li>
-<a href="#" class="flex items-center text-gray-700 hover:text-primary">
-<span class="w-1.5 h-1.5 bg-gray-300 rounded-full mr-2"></span>
-Đầu tư online
-</a>
-</li>
-<li>
-<a href="#" class="flex items-center text-gray-700 hover:text-primary">
-<span class="w-1.5 h-1.5 bg-gray-300 rounded-full mr-2"></span>
-Blockchain & Crypto
-</a>
-</li>
-<li>
-<a href="#" class="flex items-center text-gray-700 hover:text-primary">
-<span class="w-1.5 h-1.5 bg-gray-300 rounded-full mr-2"></span>
-InsurTech
-</a>
-</li>
-<li>
-<a href="#" class="flex items-center text-gray-700 hover:text-primary">
-<span class="w-1.5 h-1.5 bg-gray-300 rounded-full mr-2"></span>
-RegTech
-</a>
-</li>
-<li>
-<a href="#" class="flex items-center text-gray-700 hover:text-primary">
-<span class="w-1.5 h-1.5 bg-gray-300 rounded-full mr-2"></span>
-Tài chính cá nhân
-</a>
-</li>
-</ul>
-<div class="mt-6 pt-6 border-t border-gray-100">
-<h3 class="font-semibold text-gray-900 mb-4">Định dạng</h3>
-<div class="space-y-2">
-<label class="flex items-center">
-<input type="checkbox" class="rounded text-primary focus:ring-primary">
-<span class="ml-2 text-gray-700">Bài viết</span>
-</label>
-<label class="flex items-center">
-<input type="checkbox" class="rounded text-primary focus:ring-primary">
-<span class="ml-2 text-gray-700">Hướng dẫn</span>
-</label>
-<label class="flex items-center">
-<input type="checkbox" class="rounded text-primary focus:ring-primary">
-<span class="ml-2 text-gray-700">Infographic</span>
-</label>
-<label class="flex items-center">
-<input type="checkbox" class="rounded text-primary focus:ring-primary">
-<span class="ml-2 text-gray-700">Video</span>
-</label>
+<div class="text-right">
+<p class="font-semibold text-green-600">+3.8%</p>
+<p class="text-sm text-gray-500">+1.250.000 ₫</p>
 </div>
 </div>
-<div class="mt-6 pt-6 border-t border-gray-100">
-<h3 class="font-semibold text-gray-900 mb-4">Cấp độ</h3>
-<div class="space-y-2">
-<label class="flex items-center">
-<input type="radio" name="level" class="text-primary focus:ring-primary">
-<span class="ml-2 text-gray-700">Cơ bản</span>
-</label>
-<label class="flex items-center">
-<input type="radio" name="level" class="text-primary focus:ring-primary" checked>
-<span class="ml-2 text-gray-700">Trung cấp</span>
-</label>
-<label class="flex items-center">
-<input type="radio" name="level" class="text-primary focus:ring-primary">
-<span class="ml-2 text-gray-700">Nâng cao</span>
-</label>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-orange-100 text-orange-500 mr-3">
+<span class="text-sm font-bold">B</span>
+</div>
+<div>
+<p class="font-medium text-gray-900">BTC - Bitcoin</p>
+<p class="text-sm text-gray-500">0.5 BTC</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-semibold text-green-600">+7.1%</p>
+<p class="text-sm text-gray-500">+1.500.000 ₫</p>
 </div>
 </div>
 </div>
 </div>
-<div class="md:w-3/4">
-<div class="bg-white rounded-lg shadow-sm p-4 mb-6">
-<div class="relative">
-<input type="text" placeholder="Tìm kiếm tài liệu..." class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border-none rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<i class="ri-search-line text-gray-400"></i>
 </div>
-</div>
-</div>
+
+<!-- AI Insights -->
+<div class="bg-gradient-to-r from-primary/5 to-blue-500/5 rounded-lg p-6 mb-8">
+<h3 class="text-lg font-semibold text-gray-900 mb-4">💡 Gợi ý thông minh từ AI</h3>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<!-- Article 1 -->
-<div class="bg-white rounded-lg shadow-sm overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=Digital%20payment%20methods%20on%20smartphone%20screen%2C%20showing%20e-wallet%20interface%20with%20clean%20design%20and%20payment%20options.%20Professional%20fintech%20application%20UI%20with%20blue%20color%20scheme.&width=600&height=300&seq=fintech-article1&orientation=landscape" alt="Thanh toán điện tử" class="w-full h-40 object-cover object-top">
-<div class="p-5">
-<div class="flex items-center mb-3">
-<span class="text-xs font-medium text-white bg-primary px-2 py-1 rounded-full">Thanh toán điện tử</span>
-<span class="text-xs text-gray-500 ml-2">15 phút đọc</span>
-</div>
-<h3 class="font-semibold text-gray-900 mb-2">Tổng quan về các phương thức thanh toán điện tử tại Việt Nam</h3>
-<p class="text-gray-600 text-sm mb-4">Khám phá các giải pháp thanh toán điện tử phổ biến như ví điện tử, QR code, thanh toán không tiếp xúc và xu hướng phát triển trong thời đại số.</p>
-
-<!-- Detailed content -->
-<div class="mb-4 text-sm text-gray-700 space-y-3">
-<div class="border-l-3 border-primary/30 pl-3">
-<h4 class="font-medium text-gray-900 mb-2">Các phương thức thanh toán phổ biến:</h4>
-<ul class="space-y-1 text-gray-600">
-<li>• <span class="font-medium">Ví điện tử:</span> MoMo, ZaloPay, ViettelPay với hơn 50 triệu người dùng</li>
-<li>• <span class="font-medium">QR Code:</span> VietQR chuẩn quốc gia, thanh toán nhanh chóng</li>
-<li>• <span class="font-medium">Internet Banking:</span> Giao dịch trực tuyến 24/7</li>
-<li>• <span class="font-medium">Mobile Banking:</span> Ứng dụng ngân hàng trên điện thoại</li>
-</ul>
-</div>
-
-<div class="bg-gray-50 rounded-lg p-3">
-<p class="text-xs text-gray-600"><strong>Số liệu đáng chú ý:</strong> Thị trường thanh toán điện tử Việt Nam tăng trưởng 25% năm 2024, với tổng giá trị giao dịch đạt 8.2 tỷ USD.</p>
-</div>
-
 <div>
-<h4 class="font-medium text-gray-900 mb-2">Lợi ích chính:</h4>
-<div class="grid grid-cols-2 gap-2 text-xs">
-<div class="flex items-center">
-<i class="ri-check-line text-green-500 mr-1"></i>
-<span>Tiện lợi, nhanh chóng</span>
-</div>
-<div class="flex items-center">
-<i class="ri-check-line text-green-500 mr-1"></i>
-<span>Bảo mật cao</span>
-</div>
-<div class="flex items-center">
-<i class="ri-check-line text-green-500 mr-1"></i>
-<span>Giảm chi phí giao dịch</span>
-</div>
-<div class="flex items-center">
-<i class="ri-check-line text-green-500 mr-1"></i>
-<span>Theo dõi chi tiêu dễ dàng</span>
-</div>
-</div>
-</div>
-</div>
-
-<div class="flex items-center justify-between">
-<div class="flex items-center">
-<img src="https://readdy.ai/api/search-image?query=Professional%20Asian%20female%20fintech%20expert%20with%20glasses%2C%20business%20casual%20attire%2C%20neutral%20background%2C%20headshot%20portrait&width=40&height=40&seq=author1&orientation=squarish" alt="Nguyễn Thị Minh" class="w-8 h-8 rounded-full object-cover">
-<div class="ml-2">
-<span class="text-xs font-medium text-gray-700">Nguyễn Thị Minh</span>
-<p class="text-xs text-gray-500">Chuyên gia Fintech</p>
-</div>
-</div>
-<span class="text-xs text-gray-500">25/06/2025</span>
-</div>
-</div>
-</div>
-<!-- Article 2 -->
-<div class="bg-white rounded-lg shadow-sm overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=Digital%20banking%20application%20on%20smartphone%20and%20laptop%20screens%2C%20showing%20account%20dashboard%20with%20financial%20data%20and%20transactions.%20Modern%20banking%20interface%20with%20clean%20design.&width=600&height=300&seq=fintech-article2&orientation=landscape" alt="Ngân hàng số" class="w-full h-40 object-cover object-top">
-<div class="p-5">
-<div class="flex items-center mb-3">
-<span class="text-xs font-medium text-white bg-blue-500 px-2 py-1 rounded-full">Ngân hàng số</span>
-<span class="text-xs text-gray-500 ml-2">12 phút đọc</span>
-</div>
-<h3 class="font-semibold text-gray-900 mb-2">So sánh các nền tảng ngân hàng số hàng đầu 2025</h3>
-<p class="text-gray-600 text-sm mb-4">Phân tích chi tiết về tính năng, phí dịch vụ, trải nghiệm người dùng và bảo mật của các ngân hàng số hàng đầu tại Việt Nam.</p>
-
-<!-- Detailed content -->
-<div class="mb-4 text-sm text-gray-700 space-y-3">
-<div class="border-l-3 border-blue-500/30 pl-3">
-<h4 class="font-medium text-gray-900 mb-2">Top 5 ngân hàng số được đánh giá cao:</h4>
+<h4 class="font-medium text-gray-900 mb-2">Tiết kiệm tiềm năng</h4>
+<p class="text-sm text-gray-600 mb-3">Dựa trên phân tích chi tiêu của bạn:</p>
 <div class="space-y-2">
-<div class="flex justify-between items-center">
-<span class="font-medium">1. Techcombank</span>
-<div class="flex">
-<i class="ri-star-fill text-yellow-400 text-xs"></i>
-<i class="ri-star-fill text-yellow-400 text-xs"></i>
-<i class="ri-star-fill text-yellow-400 text-xs"></i>
-<i class="ri-star-fill text-yellow-400 text-xs"></i>
-<i class="ri-star-half-fill text-yellow-400 text-xs"></i>
-<span class="text-xs text-gray-500 ml-1">4.5/5</span>
+<div class="flex items-center justify-between text-sm">
+<span class="text-gray-600">Giảm chi tiêu ăn uống 10%</span>
+<span class="font-medium text-green-600">+315.000 ₫/tháng</span>
 </div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-gray-600">Tối ưu chi phí di chuyển</span>
+<span class="font-medium text-green-600">+180.000 ₫/tháng</span>
 </div>
-<div class="flex justify-between items-center">
-<span class="font-medium">2. VPBank</span>
-<div class="flex">
-<i class="ri-star-fill text-yellow-400 text-xs"></i>
-<i class="ri-star-fill text-yellow-400 text-xs"></i>
-<i class="ri-star-fill text-yellow-400 text-xs"></i>
-<i class="ri-star-fill text-yellow-400 text-xs"></i>
-<i class="ri-star-line text-gray-300 text-xs"></i>
-<span class="text-xs text-gray-500 ml-1">4.2/5</span>
-</div>
-</div>
-<div class="flex justify-between items-center">
-<span class="font-medium">3. MB Bank</span>
-<div class="flex">
-<i class="ri-star-fill text-yellow-400 text-xs"></i>
-<i class="ri-star-fill text-yellow-400 text-xs"></i>
-<i class="ri-star-fill text-yellow-400 text-xs"></i>
-<i class="ri-star-fill text-yellow-400 text-xs"></i>
-<i class="ri-star-line text-gray-300 text-xs"></i>
-<span class="text-xs text-gray-500 ml-1">4.0/5</span>
+<div class="flex items-center justify-between text-sm">
+<span class="text-gray-600">Giảm chi tiêu giải trí</span>
+<span class="font-medium text-green-600">+120.000 ₫/tháng</span>
 </div>
 </div>
 </div>
-</div>
-
-<div class="bg-blue-50 rounded-lg p-3">
-<h4 class="font-medium text-gray-900 mb-2">Tiêu chí so sánh:</h4>
-<div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-<div>• Giao diện người dùng</div>
-<div>• Tốc độ giao dịch</div>
-<div>• Phí dịch vụ</div>
-<div>• Tính năng đa dạng</div>
-<div>• Bảo mật & an toàn</div>
-<div>• Hỗ trợ khách hàng</div>
-</div>
-</div>
-
 <div>
-<h4 class="font-medium text-gray-900 mb-2">Xu hướng nổi bật 2025:</h4>
-<ul class="space-y-1 text-xs text-gray-600">
-<li>• AI chatbot hỗ trợ 24/7</li>
-<li>• Thanh toán sinh trường học</li>
-<li>• Tích hợp ví điện tử đa dạng</li>
-<li>• Quản lý tài chính cá nhân thông minh</li>
-</ul>
-</div>
-</div>
-
-<div class="flex items-center justify-between">
-<div class="flex items-center">
-<img src="https://readdy.ai/api/search-image?query=Professional%20Asian%20male%20fintech%20expert%20with%20modern%20haircut%2C%20business%20casual%20attire%2C%20neutral%20background%2C%20headshot%20portrait&width=40&height=40&seq=author2&orientation=squarish" alt="Trần Văn Hùng" class="w-8 h-8 rounded-full object-cover">
-<div class="ml-2">
-<span class="text-xs font-medium text-gray-700">Trần Văn Hùng</span>
-<p class="text-xs text-gray-500">Phân tích viên ngân hàng</p>
-</div>
-</div>
-<span class="text-xs text-gray-500">22/06/2025</span>
-</div>
-</div>
-</div>
-<!-- Article 3 -->
-<div class="bg-white rounded-lg shadow-sm overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=Investment%20app%20on%20smartphone%20showing%20stock%20market%20data%2C%20charts%20and%20portfolio%20performance.%20Clean%20modern%20interface%20with%20investment%20options%20and%20analytics.&width=600&height=300&seq=fintech-article3&orientation=landscape" alt="Đầu tư online" class="w-full h-40 object-cover object-top">
-<div class="p-5">
-<div class="flex items-center mb-3">
-<span class="text-xs font-medium text-white bg-green-600 px-2 py-1 rounded-full">Đầu tư online</span>
-<span class="text-xs text-gray-500 ml-2">18 phút đọc</span>
-</div>
-<h3 class="font-semibold text-gray-900 mb-2">Hướng dẫn đầu tư chứng khoán trực tuyến cho người mới bắt đầu</h3>
-<p class="text-gray-600 text-sm mb-4">Từ A-Z về đầu tư chứng khoán: mở tài khoản, phân tích cơ bản, xây dựng danh mục và quản lý rủi ro hiệu quả.</p>
-
-<!-- Detailed content -->
-<div class="mb-4 text-sm text-gray-700 space-y-3">
-<div class="border-l-3 border-green-600/30 pl-3">
-<h4 class="font-medium text-gray-900 mb-2">5 bước bắt đầu đầu tư:</h4>
+<h4 class="font-medium text-gray-900 mb-2">Mục tiêu đề xuất</h4>
+<p class="text-sm text-gray-600 mb-3">Dựa trên thu nhập và chi tiêu hiện tại:</p>
 <div class="space-y-2">
-<div class="flex items-start">
-<span class="w-5 h-5 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs font-bold mr-2 mt-0.5 flex-shrink-0">1</span>
-<div>
-<p class="font-medium">Mở tài khoản chứng khoán</p>
-<p class="text-xs text-gray-600">Chọn công ty chứng khoán uy tín (SSI, VPS, TCBS)</p>
+<div class="flex items-center justify-between text-sm">
+<span class="text-gray-600">Quỹ khẩn cấp (6 tháng)</span>
+<span class="font-medium text-blue-600">45.000.000 ₫</span>
 </div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-gray-600">Tiết kiệm cho nghỉ hưu</span>
+<span class="font-medium text-blue-600">2.000.000 ₫/tháng</span>
 </div>
-<div class="flex items-start">
-<span class="w-5 h-5 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs font-bold mr-2 mt-0.5 flex-shrink-0">2</span>
-<div>
-<p class="font-medium">Học phân tích cơ bản</p>
-<p class="text-xs text-gray-600">P/E, ROE, EPS và các chỉ số tài chính quan trọng</p>
+<div class="flex items-center justify-between text-sm">
+<span class="text-gray-600">Đầu tư dài hạn</span>
+<span class="font-medium text-blue-600">1.500.000 ₫/tháng</span>
 </div>
 </div>
-<div class="flex items-start">
-<span class="w-5 h-5 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs font-bold mr-2 mt-0.5 flex-shrink-0">3</span>
-<div>
-<p class="font-medium">Xây dựng danh mục đa dạng</p>
-<p class="text-xs text-gray-600">Phân bổ 60% cổ phiếu, 30% trái phiếu, 10% tiền mặt</p>
 </div>
 </div>
 </div>
 </div>
-
-<div class="bg-green-50 rounded-lg p-3">
-<h4 class="font-medium text-gray-900 mb-2">Top cổ phiếu được khuyến nghị:</h4>
-<div class="grid grid-cols-3 gap-2 text-xs">
-<div class="text-center">
-<span class="font-bold text-green-600">VIC</span>
-<p class="text-gray-600">Vingroup</p>
-</div>
-<div class="text-center">
-<span class="font-bold text-blue-600">VCB</span>
-<p class="text-gray-600">Vietcombank</p>
-</div>
-<div class="text-center">
-<span class="font-bold text-red-600">MSN</span>
-<p class="text-gray-600">Masan Group</p>
-</div>
-</div>
-</div>
-
-<div>
-<h4 class="font-medium text-gray-900 mb-2">Lưu ý quan trọng:</h4>
-<div class="space-y-1 text-xs text-gray-600">
-<div class="flex items-center">
-<i class="ri-error-warning-line text-orange-500 mr-1"></i>
-<span>Chỉ đầu tư số tiền có thể chấp nhận mất</span>
-</div>
-<div class="flex items-center">
-<i class="ri-time-line text-blue-500 mr-1"></i>
-<span>Đầu tư dài hạn (ít nhất 3-5 năm)</span>
-</div>
-<div class="flex items-center">
-<i class="ri-bar-chart-line text-green-500 mr-1"></i>
-<span>Đa dạng hóa danh mục để giảm rủi ro</span>
-</div>
-</div>
-</div>
-</div>
-
-<div class="flex items-center justify-between">
-<div class="flex items-center">
-<img src="https://readdy.ai/api/search-image?query=Professional%20Vietnamese%20female%20investment%20advisor%20with%20long%20hair%2C%20business%20attire%2C%20neutral%20background%2C%20headshot%20portrait&width=40&height=40&seq=author3&orientation=squarish" alt="Lê Thị Hương" class="w-8 h-8 rounded-full object-cover">
-<div class="ml-2">
-<span class="text-xs font-medium text-gray-700">Lê Thị Hương</span>
-<p class="text-xs text-gray-500">Chuyên gia đầu tư</p>
-</div>
-</div>
-<span class="text-xs text-gray-500">20/06/2025</span>
-</div>
-</div>
-</div>
-<!-- Article 4 -->
-<div class="bg-white rounded-lg shadow-sm overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=Blockchain%20technology%20visualization%20with%20connected%20blocks%20and%20cryptocurrency%20symbols.%20Abstract%20digital%20background%20with%20blockchain%20concept.&width=600&height=300&seq=fintech-article4&orientation=landscape" alt="Blockchain" class="w-full h-40 object-cover object-top">
-<div class="p-5">
-<div class="flex items-center mb-3">
-<span class="text-xs font-medium text-white bg-orange-500 px-2 py-1 rounded-full">Blockchain</span>
-<span class="text-xs text-gray-500 ml-2">20 phút đọc</span>
-</div>
-<h3 class="font-semibold text-gray-900 mb-2">Blockchain và ứng dụng trong lĩnh vực tài chính</h3>
-<p class="text-gray-600 text-sm mb-4">Khám phá cách blockchain cách mạng hóa tài chính: từ hợp đồng thông minh đến thanh toán xuyên biên giới và DeFi.</p>
-
-<!-- Detailed content -->
-<div class="mb-4 text-sm text-gray-700 space-y-3">
-<div class="border-l-3 border-orange-500/30 pl-3">
-<h4 class="font-medium text-gray-900 mb-2">Ứng dụng blockchain trong tài chính:</h4>
-<div class="space-y-2">
-<div class="bg-gray-50 rounded p-2">
-<p class="font-medium text-orange-600">🔗 Thanh toán xuyên biên giới</p>
-<p class="text-xs text-gray-600">Chuyển tiền quốc tế nhanh chóng, chi phí thấp</p>
-</div>
-<div class="bg-gray-50 rounded p-2">
-<p class="font-medium text-blue-600">📄 Hợp đồng thông minh</p>
-<p class="text-xs text-gray-600">Tự động hóa các thỏa thuận tài chính</p>
-</div>
-<div class="bg-gray-50 rounded p-2">
-<p class="font-medium text-green-600">🏦 DeFi (Decentralized Finance)</p>
-<p class="text-xs text-gray-600">Dịch vụ tài chính phi tập trung</p>
-</div>
-</div>
-</div>
-
-<div class="bg-orange-50 rounded-lg p-3">
-<h4 class="font-medium text-gray-900 mb-2">Lợi ích của Blockchain:</h4>
-<div class="grid grid-cols-2 gap-2 text-xs">
-<div class="flex items-center">
-<i class="ri-shield-check-line text-green-500 mr-1"></i>
-<span>Bảo mật cao</span>
-</div>
-<div class="flex items-center">
-<i class="ri-eye-line text-blue-500 mr-1"></i>
-<span>Minh bạch</span>
-</div>
-<div class="flex items-center">
-<i class="ri-speed-line text-orange-500 mr-1"></i>
-<span>Xử lý nhanh</span>
-</div>
-<div class="flex items-center">
-<i class="ri-coin-line text-yellow-500 mr-1"></i>
-<span>Chi phí thấp</span>
-</div>
-</div>
-</div>
-
-<div>
-<h4 class="font-medium text-gray-900 mb-2">Thống kê thị trường:</h4>
-<div class="space-y-1 text-xs text-gray-600">
-<div class="flex justify-between">
-<span>Tổng giá trị DeFi:</span>
-<span class="font-medium">$95.2 tỷ USD</span>
-</div>
-<div class="flex justify-between">
-<span>Số lượng DApps:</span>
-<span class="font-medium">3,800+ ứng dụng</span>
-</div>
-<div class="flex justify-between">
-<span>Tăng trưởng hàng năm:</span>
-<span class="font-medium text-green-600">+340%</span>
-</div>
-</div>
-</div>
-
-<div class="mt-3 p-2 bg-yellow-50 rounded border-l-3 border-yellow-400">
-<p class="text-xs text-yellow-800"><strong>⚠️ Lưu ý:</strong> Blockchain vẫn đang phát triển, cần cân nhắc rủi ro kỹ thuật và pháp lý trước khi ứng dụng.</p>
-</div>
-</div>
-
-<div class="flex items-center justify-between">
-<div class="flex items-center">
-<img src="https://readdy.ai/api/search-image?query=Professional%20Vietnamese%20male%20blockchain%20expert%20with%20glasses%2C%20casual%20business%20attire%2C%20neutral%20background%2C%20headshot%20portrait&width=40&height=40&seq=author4&orientation=squarish" alt="Phạm Minh Tuấn" class="w-8 h-8 rounded-full object-cover">
-<div class="ml-2">
-<span class="text-xs font-medium text-gray-700">Phạm Minh Tuấn</span>
-<p class="text-xs text-gray-500">Chuyên gia Blockchain</p>
-</div>
-</div>
-<span class="text-xs text-gray-500">18/06/2025</span>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-8 flex justify-center">
-<nav class="flex items-center space-x-2">
-<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-500 hover:bg-gray-50">
-<i class="ri-arrow-left-s-line"></i>
-</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white">1</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50">2</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50">3</a>
-<span class="w-10 h-10 flex items-center justify-center text-gray-500">...</span>
-<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50">12</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-500 hover:bg-gray-50">
-<i class="ri-arrow-right-s-line"></i>
-</a>
-</nav>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Newsletter Section -->
-<section class="py-16 bg-primary/5">
-<div class="container mx-auto px-4">
-<div class="max-w-3xl mx-auto text-center">
-<h2 class="text-3xl font-bold text-gray-900 mb-4">Nhận thông tin cập nhật mới nhất</h2>
-<p class="text-lg text-gray-600 mb-8">Đăng ký nhận bản tin để cập nhật xu hướng Fintech, công cụ mới và các mẹo quản lý tài chính hữu ích.</p>
-<div class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
-<input type="email" placeholder="Email của bạn" class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
-<button class="!rounded-button bg-primary text-white font-medium px-6 py-3 shadow hover:shadow-md transition whitespace-nowrap">Đăng ký</button>
-</div>
-<p class="text-sm text-gray-500 mt-4">Chúng tôi tôn trọng quyền riêng tư của bạn. Bạn có thể hủy đăng ký bất cứ lúc nào.</p>
-</div>
-</div>
-</section>
-<!-- Footer -->
-<footer class="bg-gray-900 text-white py-12">
-<div class="container mx-auto px-4">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-<div>
-<a href="#" class="flex items-center mb-4">
-<img src="https://static.readdy.ai/image/463e20087823e41977ed319075af2fbf/4b4cac66d51e9f67aef24614e3cbb06a.png" alt="BK Star Logo" class="h-8">
-</a>
-<p class="text-gray-400 mb-6">Nền tảng học tập và quản lý tài chính công nghệ hàng đầu Việt Nam.</p>
-<div class="flex space-x-4">
-<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition">
-<i class="ri-facebook-fill"></i>
-</a>
-<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition">
-<i class="ri-twitter-x-fill"></i>
-</a>
-<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition">
-<i class="ri-linkedin-fill"></i>
-</a>
-<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition">
-<i class="ri-youtube-fill"></i>
-</a>
-</div>
-</div>
-<div>
-<h3 class="font-semibold text-lg mb-4">Tài nguyên</h3>
-<ul class="space-y-2">
-<li><a href="#" class="text-gray-400 hover:text-white transition">Thư viện kiến thức</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Công cụ tính toán</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Từ điển thuật ngữ</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Khóa học</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Tin tức Fintech</a></li>
-</ul>
-</div>
-<div>
-<h3 class="font-semibold text-lg mb-4">Công ty</h3>
-<ul class="space-y-2">
-<li><a href="#" class="text-gray-400 hover:text-white transition">Về chúng tôi</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Đội ngũ</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Đối tác</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Tuyển dụng</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Liên hệ</a></li>
-</ul>
-</div>
-<div>
-<h3 class="font-semibold text-lg mb-4">Hỗ trợ</h3>
-<ul class="space-y-2">
-<li><a href="#" class="text-gray-400 hover:text-white transition">Trung tâm hỗ trợ</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Câu hỏi thường gặp</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Chính sách bảo mật</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Điều khoản sử dụng</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">Báo cáo lỗi</a></li>
-</ul>
-</div>
-</div>
-<div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-<p class="text-gray-400 text-sm">© 2025 FinEdu. Tất cả các quyền được bảo lưu.</p>
-<div class="flex items-center space-x-4 mt-4 md:mt-0">
-<div class="flex items-center">
-<i class="ri-visa-fill text-2xl text-gray-400 mr-2"></i>
-<i class="ri-mastercard-fill text-2xl text-gray-400 mr-2"></i>
-<i class="ri-paypal-fill text-2xl text-gray-400"></i>
-</div>
-</div>
-</div>
-</div>
-</footer>
 </main>
-</div>
-<script id="charts-script">
-document.addEventListener('DOMContentLoaded', function() {
-// Expense Chart
-const expenseChart = echarts.init(document.getElementById('expense-chart'));
-const expenseOption = {
-animation: false,
-tooltip: {
-trigger: 'item',
-backgroundColor: 'rgba(255, 255, 255, 0.9)',
-borderColor: '#f1f5f9',
-textStyle: {
-color: '#1f2937'
-}
-},
-legend: {
-orient: 'vertical',
-right: 10,
-top: 'center',
-textStyle: {
-color: '#1f2937'
-}
-},
-series: [
-{
-name: 'Chi tiêu',
-type: 'pie',
-radius: ['40%', '70%'],
-avoidLabelOverlap: false,
-itemStyle: {
-borderRadius: 8,
-borderColor: '#fff',
-borderWidth: 2
-},
-label: {
-show: false
-},
-emphasis: {
-label: {
-show: false
-}
-},
-labelLine: {
-show: false
-},
-data: [
-{ value: 3200000, name: 'Ăn uống', itemStyle: { color: 'rgba(87, 181, 231, 1)' } },
-{ value: 2500000, name: 'Nhà ở', itemStyle: { color: 'rgba(141, 211, 199, 1)' } },
-{ value: 1800000, name: 'Di chuyển', itemStyle: { color: 'rgba(251, 191, 114, 1)' } },
-{ value: 1500000, name: 'Giải trí', itemStyle: { color: 'rgba(252, 141, 98, 1)' } },
-{ value: 850000, name: 'Khác', itemStyle: { color: 'rgba(179, 179, 179, 1)' } }
-]
-}
-]
-};
-expenseChart.setOption(expenseOption);
-// Investment Chart
-const investmentChart = echarts.init(document.getElementById('investment-chart'));
-const investmentOption = {
-animation: false,
-tooltip: {
-trigger: 'axis',
-backgroundColor: 'rgba(255, 255, 255, 0.9)',
-borderColor: '#f1f5f9',
-textStyle: {
-color: '#1f2937'
-}
-},
-legend: {
-data: ['Tiết kiệm ngân hàng', 'Trái phiếu doanh nghiệp', 'Quỹ ETF VN30'],
-textStyle: {
-color: '#1f2937'
-}
-},
-grid: {
-left: 0,
-right: 0,
-top: 30,
-bottom: 0,
-containLabel: true
-},
-xAxis: {
-type: 'category',
-boundaryGap: false,
-data: ['Năm 1', 'Năm 2', 'Năm 3', 'Năm 4', 'Năm 5'],
-axisLine: {
-lineStyle: {
-color: '#e2e8f0'
-}
-},
-axisLabel: {
-color: '#64748b'
-}
-},
-yAxis: {
-type: 'value',
-axisLine: {
-show: false
-},
-axisLabel: {
-color: '#64748b',
-formatter: function(value) {
-return value / 1000000 + ' tr';
-}
-},
-splitLine: {
-lineStyle: {
-color: '#e2e8f0'
-}
-}
-},
-series: [
-{
-name: 'Tiết kiệm ngân hàng',
-type: 'line',
-smooth: true,
-lineStyle: {
-width: 3,
-color: 'rgba(87, 181, 231, 1)'
-},
-areaStyle: {
-color: {
-type: 'linear',
-x: 0,
-y: 0,
-x2: 0,
-y2: 1,
-colorStops: [{
-offset: 0, color: 'rgba(87, 181, 231, 0.2)'
-}, {
-offset: 1, color: 'rgba(87, 181, 231, 0.05)'
-}]
-}
-},
-emphasis: {
-focus: 'series'
-},
-symbol: 'none',
-data: [100000000, 105500000, 111302500, 117424137, 123882365]
-},
-{
-name: 'Trái phiếu doanh nghiệp',
-type: 'line',
-smooth: true,
-lineStyle: {
-width: 3,
-color: 'rgba(141, 211, 199, 1)'
-},
-areaStyle: {
-color: {
-type: 'linear',
-x: 0,
-y: 0,
-x2: 0,
-y2: 1,
-colorStops: [{
-offset: 0, color: 'rgba(141, 211, 199, 0.2)'
-}, {
-offset: 1, color: 'rgba(141, 211, 199, 0.05)'
-}]
-}
-},
-emphasis: {
-focus: 'series'
-},
-symbol: 'none',
-data: [100000000, 108200000, 117092400, 126693977, 137082883]
-},
-{
-name: 'Quỹ ETF VN30',
-type: 'line',
-smooth: true,
-lineStyle: {
-width: 3,
-color: 'rgba(251, 191, 114, 1)'
-},
-areaStyle: {
-color: {
-type: 'linear',
-x: 0,
-y: 0,
-x2: 0,
-y2: 1,
-colorStops: [{
-offset: 0, color: 'rgba(251, 191, 114, 0.2)'
-}, {
-offset: 1, color: 'rgba(251, 191, 114, 0.05)'
-}]
-}
-},
-emphasis: {
-focus: 'series'
-},
-symbol: 'none',
-data: [100000000, 110500000, 122102500, 134923262, 149090205]
-}
-]
-};
-investmentChart.setOption(investmentOption);
-// Handle window resize
-window.addEventListener('resize', function() {
-expenseChart.resize();
-investmentChart.resize();
-});
-});
-</script>
-<script id="mobile-menu-script">
-document.addEventListener('DOMContentLoaded', function() {
-const mobileMenuButton = document.querySelector('button.md\\:hidden');
-const sidebar = document.querySelector('aside');
-const userProfileButton = document.getElementById('userProfileButton');
-const userDropdownMenu = document.getElementById('userDropdownMenu');
-let isDropdownOpen = false;
-userProfileButton.addEventListener('click', function(e) {
-e.stopPropagation();
-isDropdownOpen = !isDropdownOpen;
-userDropdownMenu.classList.toggle('hidden');
-});
-document.addEventListener('click', function(e) {
-if (!userProfileButton.contains(e.target) && isDropdownOpen) {
-userDropdownMenu.classList.add('hidden');
-isDropdownOpen = false;
-}
-});
-mobileMenuButton.addEventListener('click', function() {
-sidebar.classList.toggle('hidden');
-sidebar.classList.toggle('fixed');
-sidebar.classList.toggle('inset-0');
-sidebar.classList.toggle('z-40');
-if (sidebar.classList.contains('fixed')) {
-document.body.style.overflow = 'hidden';
-} else {
-document.body.style.overflow = '';
-}
-});
-});
-</script>
 </body>
 </html>
