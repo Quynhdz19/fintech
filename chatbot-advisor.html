@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chatbot Tư vấn Tài chính - FinTech Education</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#ec4899',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<style>
+body {
+font-family: 'Inter', sans-serif;
+}
+.custom-scrollbar::-webkit-scrollbar {
+width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+background: #f1f5f9;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+background: #cbd5e1;
+border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+background: #94a3b8;
+}
+.typing-indicator {
+display: inline-block;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background-color: #9ca3af;
+animation: typing 1.4s infinite ease-in-out;
+}
+.typing-indicator:nth-child(1) {
+animation-delay: -0.32s;
+}
+.typing-indicator:nth-child(2) {
+animation-delay: -0.16s;
+}
+@keyframes typing {
+0%, 80%, 100% {
+transform: scale(0);
+opacity: 0.5;
+}
+40% {
+transform: scale(1);
+opacity: 1;
+}
+}
+</style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+<!-- Header -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+<div class="flex items-center justify-between px-4 py-3">
+<div class="flex items-center space-x-8">
+<a href="index.html" class="flex items-center">
+<img src="https://static.readdy.ai/image/463e20087823e41977ed319075af2fbf/4b4cac66d51e9f67aef24614e3cbb06a.png" alt="BK Star Logo" class="h-8">
+</a>
+<nav class="hidden md:flex space-x-6">
+<a href="index.html" class="text-sm font-medium text-gray-500 hover:text-primary">Trang chủ</a>
+<a href="expense-tracker.html" class="text-sm font-medium text-gray-500 hover:text-primary">Quản lý Chi tiêu</a>
+<a href="expense-statistics.html" class="text-sm font-medium text-gray-500 hover:text-primary">Thống kê</a>
+<a href="#" class="text-sm font-medium text-gray-900 hover:text-primary">Tư vấn</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary flex items-center justify-center text-white text-sm font-medium">VM</div>
+<span class="text-sm font-medium hidden md:block">Vũ Mạnh</span>
+</div>
+</div>
+</header>
+
+<div class="flex">
+<!-- Sidebar -->
+<aside class="w-64 hidden md:block bg-white shadow-sm h-[calc(100vh-56px)] sticky top-[56px] overflow-y-auto custom-scrollbar">
+<div class="p-4">
+<div class="mb-6">
+<h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Quản lý tài chính</h3>
+<ul class="space-y-1">
+<li>
+<a href="expense-tracker.html" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
+<div class="w-5 h-5 mr-3 flex items-center justify-center">
+<i class="ri-add-circle-line"></i>
+</div>
+Thêm chi tiêu
+</a>
+</li>
+<li>
+<a href="expense-statistics.html" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
+<div class="w-5 h-5 mr-3 flex items-center justify-center">
+<i class="ri-bar-chart-line"></i>
+</div>
+Thống kê chi tiêu
+</a>
+</li>
+<li>
+<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
+<div class="w-5 h-5 mr-3 flex items-center justify-center">
+<i class="ri-pie-chart-line"></i>
+</div>
+Phân tích chi tiêu
+</a>
+</li>
+<li>
+<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
+<div class="w-5 h-5 mr-3 flex items-center justify-center">
+<i class="ri-target-line"></i>
+</div>
+Mục tiêu tiết kiệm
+</a>
+</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Tư vấn AI</h3>
+<ul class="space-y-1">
+<li>
+<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg bg-primary/10 text-primary">
+<div class="w-5 h-5 mr-3 flex items-center justify-center">
+<i class="ri-robot-line"></i>
+</div>
+Chatbot tư vấn
+</a>
+</li>
+<li>
+<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
+<div class="w-5 h-5 mr-3 flex items-center justify-center">
+<i class="ri-lightbulb-line"></i>
+</div>
+Gợi ý tiết kiệm
+</a>
+</li>
+</ul>
+</div>
+</div>
+</aside>
+
+<!-- Main Content -->
+<main class="flex-1 min-w-0">
+<div class="h-[calc(100vh-56px)] flex flex-col">
+<!-- Chat Header -->
+<div class="bg-white border-b border-gray-200 px-6 py-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary mr-3">
+<i class="ri-robot-line text-xl"></i>
+</div>
+<div>
+<h1 class="text-lg font-semibold text-gray-900">AI Tư vấn Tài chính</h1>
+<p class="text-sm text-gray-500">Chuyên gia AI sẵn sàng hỗ trợ bạn 24/7</p>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<div class="w-2 h-2 bg-green-500 rounded-full"></div>
+<span class="text-sm text-green-600 font-medium">Đang hoạt động</span>
+</div>
+</div>
+</div>
+
+<!-- Chat Messages -->
+<div id="chatMessages" class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-4">
+<!-- Welcome Message -->
+<div class="flex items-start space-x-3">
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary flex-shrink-0">
+<i class="ri-robot-line"></i>
+</div>
+<div class="bg-white rounded-lg shadow-sm p-4 max-w-2xl">
+<p class="text-gray-900 mb-2">Xin chào! Tôi là AI tư vấn tài chính của bạn. Tôi có thể giúp bạn:</p>
+<ul class="text-sm text-gray-600 space-y-1">
+<li>• Phân tích tình hình tài chính cá nhân</li>
+<li>• Đưa ra lời khuyên về đầu tư và tiết kiệm</li>
+<li>• Hướng dẫn quản lý ngân sách</li>
+<li>• Giải đáp thắc mắc về tài chính</li>
+</ul>
+<p class="text-sm text-gray-600 mt-2">Bạn muốn tư vấn về vấn đề gì?</p>
+</div>
+</div>
+
+<!-- Quick Suggestions -->
+<div class="flex flex-wrap gap-2 mt-4">
+<button class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm hover:bg-primary/20 transition" onclick="sendQuickMessage('Tôi muốn lập kế hoạch tài chính')">
+💡 Lập kế hoạch tài chính
+</button>
+<button class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm hover:bg-primary/20 transition" onclick="sendQuickMessage('Tôi muốn đầu tư nhưng chưa biết bắt đầu từ đâu')">
+📈 Hướng dẫn đầu tư
+</button>
+<button class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm hover:bg-primary/20 transition" onclick="sendQuickMessage('Tôi muốn tiết kiệm tiền hiệu quả hơn')">
+💰 Mẹo tiết kiệm
+</button>
+<button class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm hover:bg-primary/20 transition" onclick="sendQuickMessage('Tôi muốn phân tích chi tiêu của mình')">
+📊 Phân tích chi tiêu
+</button>
+</div>
+</div>
+
+<!-- Chat Input -->
+<div class="bg-white border-t border-gray-200 p-6">
+<div class="flex items-center space-x-4">
+<div class="flex-1 relative">
+<input type="text" id="messageInput" placeholder="Nhập câu hỏi của bạn..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary pr-12">
+<button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary">
+<i class="ri-attachment-line"></i>
+</button>
+</div>
+<button id="sendButton" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition flex items-center">
+<i class="ri-send-plane-line mr-2"></i>
+Gửi
+</button>
+</div>
+<div class="flex items-center justify-between mt-3">
+<div class="flex items-center space-x-4 text-sm text-gray-500">
+<span>💡 Mẹo: Hỏi cụ thể để nhận lời khuyên tốt nhất</span>
+</div>
+<div class="flex items-center space-x-2">
+<button class="text-gray-400 hover:text-gray-600">
+<i class="ri-mic-line"></i>
+</button>
+<button class="text-gray-400 hover:text-gray-600">
+<i class="ri-image-line"></i>
+</button>
+<button class="text-gray-400 hover:text-gray-600">
+<i class="ri-more-2-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<!-- AI Response Templates -->
+<div id="responseTemplates" style="display: none;">
+<!-- Financial Planning Response -->
+<div class="financial-planning-response">
+<div class="bg-white rounded-lg shadow-sm p-4 max-w-2xl">
+<p class="text-gray-900 mb-4">Tuyệt vời! Để lập kế hoạch tài chính hiệu quả, tôi sẽ hướng dẫn bạn từng bước:</p>
+<div class="space-y-4">
+<div class="border-l-4 border-primary pl-4">
+<h4 class="font-semibold text-gray-900 mb-2">1. Đánh giá tình hình hiện tại</h4>
+<p class="text-sm text-gray-600">• Tính tổng thu nhập hàng tháng</p>
+<p class="text-sm text-gray-600">• Liệt kê tất cả chi phí cố định</p>
+<p class="text-sm text-gray-600">• Xác định số tiền có thể tiết kiệm</p>
+</div>
+<div class="border-l-4 border-blue-500 pl-4">
+<h4 class="font-semibold text-gray-900 mb-2">2. Thiết lập mục tiêu</h4>
+<p class="text-sm text-gray-600">• Mục tiêu ngắn hạn (1-2 năm)</p>
+<p class="text-sm text-gray-600">• Mục tiêu dài hạn (5-10 năm)</p>
+<p class="text-sm text-gray-600">• Quỹ khẩn cấp (6 tháng chi phí)</p>
+</div>
+<div class="border-l-4 border-green-500 pl-4">
+<h4 class="font-semibold text-gray-900 mb-2">3. Phân bổ ngân sách</h4>
+<p class="text-sm text-gray-600">• 50% cho chi phí thiết yếu</p>
+<p class="text-sm text-gray-600">• 30% cho chi phí linh hoạt</p>
+<p class="text-sm text-gray-600">• 20% cho tiết kiệm và đầu tư</p>
+</div>
+</div>
+<p class="text-sm text-gray-600 mt-4">Bạn có muốn tôi giúp tính toán cụ thể cho tình hình của bạn không?</p>
+</div>
+</div>
+
+<!-- Investment Guide Response -->
+<div class="investment-guide-response">
+<div class="bg-white rounded-lg shadow-sm p-4 max-w-2xl">
+<p class="text-gray-900 mb-4">Đầu tư là một bước quan trọng để tăng trưởng tài sản! Đây là hướng dẫn cho người mới bắt đầu:</p>
+<div class="space-y-4">
+<div class="bg-blue-50 rounded-lg p-4">
+<h4 class="font-semibold text-gray-900 mb-2">🎯 Bước 1: Xác định mục tiêu đầu tư</h4>
+<p class="text-sm text-gray-600">• Thời gian đầu tư (ngắn/dài hạn)</p>
+<p class="text-sm text-gray-600">• Mức độ chấp nhận rủi ro</p>
+<p class="text-sm text-gray-600">• Số tiền có thể đầu tư</p>
+</div>
+<div class="bg-green-50 rounded-lg p-4">
+<h4 class="font-semibold text-gray-900 mb-2">📊 Bước 2: Chọn kênh đầu tư phù hợp</h4>
+<p class="text-sm text-gray-600">• <strong>Tiết kiệm ngân hàng:</strong> An toàn, lãi suất thấp</p>
+<p class="text-sm text-gray-600">• <strong>Trái phiếu:</strong> Rủi ro thấp, lãi suất ổn định</p>
+<p class="text-sm text-gray-600">• <strong>Cổ phiếu:</strong> Rủi ro cao, lợi nhuận tiềm năng cao</p>
+<p class="text-sm text-gray-600">• <strong>Quỹ ETF:</strong> Đa dạng hóa, phù hợp người mới</p>
+</div>
+<div class="bg-yellow-50 rounded-lg p-4">
+<h4 class="font-semibold text-gray-900 mb-2">⚠️ Nguyên tắc vàng</h4>
+<p class="text-sm text-gray-600">• Chỉ đầu tư số tiền có thể mất</p>
+<p class="text-sm text-gray-600">• Đa dạng hóa danh mục</p>
+<p class="text-sm text-gray-600">• Đầu tư dài hạn, không theo cảm xúc</p>
+</div>
+</div>
+<p class="text-sm text-gray-600 mt-4">Bạn muốn tôi tư vấn cụ thể về kênh đầu tư nào?</p>
+</div>
+</div>
+
+<!-- Saving Tips Response -->
+<div class="saving-tips-response">
+<div class="bg-white rounded-lg shadow-sm p-4 max-w-2xl">
+<p class="text-gray-900 mb-4">Đây là những mẹo tiết kiệm hiệu quả dựa trên phân tích chi tiêu của bạn:</p>
+<div class="space-y-4">
+<div class="bg-red-50 rounded-lg p-4">
+<h4 class="font-semibold text-gray-900 mb-2">🍽️ Tiết kiệm chi phí ăn uống</h4>
+<p class="text-sm text-gray-600 mb-2">Chi tiêu ăn uống của bạn chiếm 32% tổng chi tiêu. Một số gợi ý:</p>
+<ul class="text-sm text-gray-600 space-y-1">
+<li>• Nấu ăn tại nhà thay vì ăn ngoài</li>
+<li>• Mua thực phẩm theo kế hoạch</li>
+<li>• Sử dụng coupon và khuyến mãi</li>
+</ul>
+<p class="text-sm text-green-600 font-medium mt-2">Tiết kiệm tiềm năng: 315.000 ₫/tháng</p>
+</div>
+<div class="bg-blue-50 rounded-lg p-4">
+<h4 class="font-semibold text-gray-900 mb-2">🚗 Tối ưu chi phí di chuyển</h4>
+<p class="text-sm text-gray-600 mb-2">Chi phí di chuyển có thể được tối ưu:</p>
+<ul class="text-sm text-gray-600 space-y-1">
+<li>• Sử dụng phương tiện công cộng</li>
+<li>• Đi chung xe với đồng nghiệp</li>
+<li>• Sử dụng ứng dụng so sánh giá xăng</li>
+</ul>
+<p class="text-sm text-green-600 font-medium mt-2">Tiết kiệm tiềm năng: 180.000 ₫/tháng</p>
+</div>
+<div class="bg-purple-50 rounded-lg p-4">
+<h4 class="font-semibold text-gray-900 mb-2">🎬 Quản lý chi tiêu giải trí</h4>
+<p class="text-sm text-gray-600 mb-2">Cân bằng giữa giải trí và tiết kiệm:</p>
+<ul class="text-sm text-gray-600 space-y-1">
+<li>• Tìm các hoạt động miễn phí</li>
+<li>• Sử dụng thẻ thành viên và ưu đãi</li>
+<li>• Đặt giới hạn chi tiêu giải trí</li>
+</ul>
+<p class="text-sm text-green-600 font-medium mt-2">Tiết kiệm tiềm năng: 120.000 ₫/tháng</p>
+</div>
+</div>
+<p class="text-sm text-gray-600 mt-4">Tổng tiết kiệm tiềm năng: <strong>615.000 ₫/tháng</strong></p>
+</div>
+</div>
+
+<!-- Expense Analysis Response -->
+<div class="expense-analysis-response">
+<div class="bg-white rounded-lg shadow-sm p-4 max-w-2xl">
+<p class="text-gray-900 mb-4">Dựa trên dữ liệu chi tiêu của bạn, đây là phân tích chi tiết:</p>
+<div class="space-y-4">
+<div class="bg-gray-50 rounded-lg p-4">
+<h4 class="font-semibold text-gray-900 mb-2">📊 Tổng quan chi tiêu</h4>
+<div class="grid grid-cols-2 gap-4 text-sm">
+<div>
+<p class="text-gray-600">Tổng chi tiêu tháng này:</p>
+<p class="font-semibold text-gray-900">9.850.000 ₫</p>
+</div>
+<div>
+<p class="text-gray-600">Chi tiêu trung bình/ngày:</p>
+<p class="font-semibold text-gray-900">328.333 ₫</p>
+</div>
+</div>
+</div>
+<div class="bg-blue-50 rounded-lg p-4">
+<h4 class="font-semibold text-gray-900 mb-2">🏆 Danh mục chi tiêu nhiều nhất</h4>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-sm text-gray-600">Ăn uống</span>
+<span class="font-semibold text-gray-900">32% (3.200.000 ₫)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-gray-600">Mua sắm</span>
+<span class="font-semibold text-gray-900">25% (2.500.000 ₫)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-gray-600">Di chuyển</span>
+<span class="font-semibold text-gray-900">12% (1.200.000 ₫)</span>
+</div>
+</div>
+</div>
+<div class="bg-green-50 rounded-lg p-4">
+<h4 class="font-semibold text-gray-900 mb-2">💡 Gợi ý cải thiện</h4>
+<p class="text-sm text-gray-600 mb-2">Dựa trên phân tích, bạn có thể:</p>
+<ul class="text-sm text-gray-600 space-y-1">
+<li>• Giảm chi tiêu ăn uống xuống 25% (tiết kiệm 700.000 ₫)</li>
+<li>• Tối ưu chi phí mua sắm bằng cách so sánh giá</li>
+<li>• Sử dụng phương tiện công cộng để giảm chi phí di chuyển</li>
+</ul>
+</div>
+</div>
+<p class="text-sm text-gray-600 mt-4">Bạn muốn tôi đưa ra kế hoạch cụ thể để cải thiện tình hình tài chính không?</p>
+</div>
+</div>
+</div>
+
+<script>
+// Chat functionality
+let isTyping = false;
+
+// Initialize chat
+document.addEventListener('DOMContentLoaded', function() {
+const messageInput = document.getElementById('messageInput');
+const sendButton = document.getElementById('sendButton');
+
+// Send message on Enter key
+messageInput.addEventListener('keypress', function(e) {
+if (e.key === 'Enter' && !e.shiftKey) {
+e.preventDefault();
+sendMessage();
+}
+});
+
+// Send message on button click
+sendButton.addEventListener('click', sendMessage);
+});
+
+// Send message function
+function sendMessage() {
+const messageInput = document.getElementById('messageInput');
+const message = messageInput.value.trim();
+
+if (!message) return;
+
+// Add user message to chat
+addMessage(message, 'user');
+messageInput.value = '';
+
+// Show typing indicator
+showTypingIndicator();
+
+// Simulate AI response after delay
+setTimeout(() => {
+hideTypingIndicator();
+const response = generateAIResponse(message);
+addMessage(response, 'ai');
+}, 1500 + Math.random() * 1000);
+}
+
+// Send quick message
+function sendQuickMessage(message) {
+document.getElementById('messageInput').value = message;
+sendMessage();
+}
+
+// Add message to chat
+function addMessage(content, sender) {
+const chatMessages = document.getElementById('chatMessages');
+const messageDiv = document.createElement('div');
+messageDiv.className = `flex items-start space-x-3 ${sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`;
+
+if (sender === 'user') {
+messageDiv.innerHTML = `
+<div class="bg-primary text-white rounded-lg p-4 max-w-2xl">
+<p class="text-white">${content}</p>
+</div>
+`;
+} else {
+messageDiv.innerHTML = `
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary flex-shrink-0">
+<i class="ri-robot-line"></i>
+</div>
+<div class="bg-white rounded-lg shadow-sm p-4 max-w-2xl">
+${content}
+</div>
+`;
+}
+
+chatMessages.appendChild(messageDiv);
+chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Show typing indicator
+function showTypingIndicator() {
+if (isTyping) return;
+isTyping = true;
+
+const chatMessages = document.getElementById('chatMessages');
+const typingDiv = document.createElement('div');
+typingDiv.className = 'flex items-start space-x-3';
+typingDiv.id = 'typingIndicator';
+typingDiv.innerHTML = `
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary flex-shrink-0">
+<i class="ri-robot-line"></i>
+</div>
+<div class="bg-white rounded-lg shadow-sm p-4 max-w-2xl">
+<div class="flex items-center space-x-1">
+<span class="text-gray-500 text-sm">AI đang suy nghĩ</span>
+<div class="typing-indicator"></div>
+<div class="typing-indicator"></div>
+<div class="typing-indicator"></div>
+</div>
+</div>
+`;
+
+chatMessages.appendChild(typingDiv);
+chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Hide typing indicator
+function hideTypingIndicator() {
+const typingIndicator = document.getElementById('typingIndicator');
+if (typingIndicator) {
+typingIndicator.remove();
+}
+isTyping = false;
+}
+
+// Generate AI response based on message content
+function generateAIResponse(message) {
+const lowerMessage = message.toLowerCase();
+
+// Financial planning
+if (lowerMessage.includes('kế hoạch') || lowerMessage.includes('lập kế hoạch')) {
+return document.getElementById('responseTemplates').querySelector('.financial-planning-response').innerHTML;
+}
+
+// Investment guide
+if (lowerMessage.includes('đầu tư') || lowerMessage.includes('đầu tư')) {
+return document.getElementById('responseTemplates').querySelector('.investment-guide-response').innerHTML;
+}
+
+// Saving tips
+if (lowerMessage.includes('tiết kiệm') || lowerMessage.includes('tiết kiệm')) {
+return document.getElementById('responseTemplates').querySelector('.saving-tips-response').innerHTML;
+}
+
+// Expense analysis
+if (lowerMessage.includes('phân tích') || lowerMessage.includes('chi tiêu')) {
+return document.getElementById('responseTemplates').querySelector('.expense-analysis-response').innerHTML;
+}
+
+// Default responses
+const defaultResponses = [
+`<p class="text-gray-900 mb-2">Cảm ơn bạn đã hỏi! Để tôi có thể tư vấn tốt nhất, bạn có thể:</p>
+<ul class="text-sm text-gray-600 space-y-1">
+<li>• Mô tả cụ thể về tình hình tài chính hiện tại</li>
+<li>• Nêu rõ mục tiêu tài chính của bạn</li>
+<li>• Chia sẻ những khó khăn bạn đang gặp phải</li>
+</ul>
+<p class="text-sm text-gray-600 mt-2">Tôi sẽ đưa ra lời khuyên phù hợp nhất!</p>`,
+
+`<p class="text-gray-900 mb-2">Tôi hiểu bạn đang quan tâm đến vấn đề này. Để tư vấn chính xác, tôi cần biết thêm:</p>
+<div class="bg-blue-50 rounded-lg p-3 mt-3">
+<p class="text-sm text-gray-600"><strong>Một số câu hỏi để hiểu rõ hơn:</strong></p>
+<ul class="text-sm text-gray-600 space-y-1 mt-2">
+<li>• Thu nhập hàng tháng của bạn là bao nhiêu?</li>
+<li>• Bạn có khoản nợ nào không?</li>
+<li>• Mục tiêu tài chính ngắn hạn và dài hạn?</li>
+</ul>
+</div>`,
+
+`<p class="text-gray-900 mb-2">Đây là một câu hỏi rất hay! Tôi có thể giúp bạn với:</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+<div class="bg-green-50 rounded-lg p-3">
+<h4 class="font-semibold text-gray-900 text-sm mb-1">💡 Lập ngân sách</h4>
+<p class="text-xs text-gray-600">Hướng dẫn phân bổ thu nhập hợp lý</p>
+</div>
+<div class="bg-blue-50 rounded-lg p-3">
+<h4 class="font-semibold text-gray-900 text-sm mb-1">📈 Đầu tư thông minh</h4>
+<p class="text-xs text-gray-600">Chọn kênh đầu tư phù hợp</p>
+</div>
+<div class="bg-purple-50 rounded-lg p-3">
+<h4 class="font-semibold text-gray-900 text-sm mb-1">💰 Tiết kiệm hiệu quả</h4>
+<p class="text-xs text-gray-600">Mẹo tiết kiệm tiền bạc</p>
+</div>
+<div class="bg-orange-50 rounded-lg p-3">
+<h4 class="font-semibold text-gray-900 text-sm mb-1">🛡️ Quản lý rủi ro</h4>
+<p class="text-xs text-gray-600">Bảo vệ tài sản của bạn</p>
+</div>
+</div>
+<p class="text-sm text-gray-600 mt-3">Bạn muốn tìm hiểu về chủ đề nào?</p>`
+];
+
+return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+}
+</script>
+</body>
+</html>

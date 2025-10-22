@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quản lý Chi tiêu - FinTech Education</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#ec4899',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+body {
+font-family: 'Inter', sans-serif;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input[type="number"] {
+-moz-appearance: textfield;
+}
+.custom-scrollbar::-webkit-scrollbar {
+width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+background: #f1f5f9;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+background: #cbd5e1;
+border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+background: #94a3b8;
+}
+</style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+<!-- Header -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+<div class="flex items-center justify-between px-4 py-3">
+<div class="flex items-center space-x-8">
+<a href="index.html" class="flex items-center">
+<img src="https://static.readdy.ai/image/463e20087823e41977ed319075af2fbf/4b4cac66d51e9f67aef24614e3cbb06a.png" alt="BK Star Logo" class="h-8">
+</a>
+<nav class="hidden md:flex space-x-6">
+<a href="index.html" class="text-sm font-medium text-gray-500 hover:text-primary">Trang chủ</a>
+<a href="#" class="text-sm font-medium text-gray-900 hover:text-primary">Quản lý Tài chính</a>
+<a href="#" class="text-sm font-medium text-gray-500 hover:text-primary">Thống kê</a>
+<a href="#" class="text-sm font-medium text-gray-500 hover:text-primary">Tư vấn</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary flex items-center justify-center text-white text-sm font-medium">VM</div>
+<span class="text-sm font-medium hidden md:block">Vũ Mạnh</span>
+</div>
+</div>
+</header>
+
+<div class="flex">
+<!-- Sidebar -->
+<aside class="w-64 hidden md:block bg-white shadow-sm h-[calc(100vh-56px)] sticky top-[56px] overflow-y-auto custom-scrollbar">
+<div class="p-4">
+<div class="mb-6">
+<h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Quản lý tài chính</h3>
+<ul class="space-y-1">
+<li>
+<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg bg-primary/10 text-primary">
+<div class="w-5 h-5 mr-3 flex items-center justify-center">
+<i class="ri-add-circle-line"></i>
+</div>
+Thêm chi tiêu
+</a>
+</li>
+<li>
+<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
+<div class="w-5 h-5 mr-3 flex items-center justify-center">
+<i class="ri-bar-chart-line"></i>
+</div>
+Thống kê chi tiêu
+</a>
+</li>
+<li>
+<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
+<div class="w-5 h-5 mr-3 flex items-center justify-center">
+<i class="ri-pie-chart-line"></i>
+</div>
+Phân tích chi tiêu
+</a>
+</li>
+<li>
+<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
+<div class="w-5 h-5 mr-3 flex items-center justify-center">
+<i class="ri-target-line"></i>
+</div>
+Mục tiêu tiết kiệm
+</a>
+</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Tư vấn AI</h3>
+<ul class="space-y-1">
+<li>
+<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
+<div class="w-5 h-5 mr-3 flex items-center justify-center">
+<i class="ri-robot-line"></i>
+</div>
+Chatbot tư vấn
+</a>
+</li>
+<li>
+<a href="#" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100">
+<div class="w-5 h-5 mr-3 flex items-center justify-center">
+<i class="ri-lightbulb-line"></i>
+</div>
+Gợi ý tiết kiệm
+</a>
+</li>
+</ul>
+</div>
+</div>
+</aside>
+
+<!-- Main Content -->
+<main class="flex-1 min-w-0">
+<div class="p-6">
+<!-- Page Header -->
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-gray-900 mb-2">Quản lý Chi tiêu</h1>
+<p class="text-gray-600">Theo dõi và phân tích chi tiêu của bạn một cách thông minh</p>
+</div>
+
+<!-- Quick Stats -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="bg-white rounded-lg shadow-sm p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm text-gray-500 mb-1">Chi tiêu tháng này</p>
+<p class="text-2xl font-bold text-gray-900" id="monthlyExpense">9.850.000 ₫</p>
+</div>
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-500">
+<i class="ri-arrow-up-line text-xl"></i>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-center text-sm text-red-500">
+<i class="ri-arrow-up-line mr-1"></i>
+<span>8% so với tháng trước</span>
+</div>
+</div>
+</div>
+
+<div class="bg-white rounded-lg shadow-sm p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm text-gray-500 mb-1">Ngân sách còn lại</p>
+<p class="text-2xl font-bold text-gray-900" id="remainingBudget">5.350.000 ₫</p>
+</div>
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-500">
+<i class="ri-wallet-3-line text-xl"></i>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-center text-sm text-green-500">
+<i class="ri-check-line mr-1"></i>
+<span>Trong ngân sách</span>
+</div>
+</div>
+</div>
+
+<div class="bg-white rounded-lg shadow-sm p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm text-gray-500 mb-1">Giao dịch hôm nay</p>
+<p class="text-2xl font-bold text-gray-900" id="todayTransactions">12</p>
+</div>
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-100 text-blue-500">
+<i class="ri-exchange-line text-xl"></i>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-center text-sm text-blue-500">
+<i class="ri-time-line mr-1"></i>
+<span>3 giao dịch mới</span>
+</div>
+</div>
+</div>
+
+<div class="bg-white rounded-lg shadow-sm p-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm text-gray-500 mb-1">Danh mục phổ biến</p>
+<p class="text-2xl font-bold text-gray-900">Ăn uống</p>
+</div>
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-orange-100 text-orange-500">
+<i class="ri-restaurant-line text-xl"></i>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-center text-sm text-orange-500">
+<i class="ri-pie-chart-line mr-1"></i>
+<span>32% tổng chi tiêu</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Add Expense Form -->
+<div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+<h2 class="text-xl font-semibold text-gray-900 mb-6">Thêm chi tiêu mới</h2>
+<form id="expenseForm" class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Mô tả giao dịch</label>
+<input type="text" id="expenseDescription" placeholder="Ví dụ: Ăn trưa tại nhà hàng ABC" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Số tiền</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="text-gray-500">₫</span>
+</div>
+<input type="number" id="expenseAmount" placeholder="0" class="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+</div>
+</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Danh mục</label>
+<select id="expenseCategory" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+<option value="">Chọn danh mục</option>
+<option value="food">🍽️ Ăn uống</option>
+<option value="transport">🚗 Di chuyển</option>
+<option value="shopping">🛍️ Mua sắm</option>
+<option value="entertainment">🎬 Giải trí</option>
+<option value="health">🏥 Y tế</option>
+<option value="education">📚 Giáo dục</option>
+<option value="utilities">⚡ Tiện ích</option>
+<option value="other">📦 Khác</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Ngày giao dịch</label>
+<input type="date" id="expenseDate" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+</div>
+</div>
+
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Ghi chú (tùy chọn)</label>
+<textarea id="expenseNote" rows="3" placeholder="Thêm ghi chú về giao dịch này..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
+</div>
+
+<div class="flex justify-end space-x-4">
+<button type="button" class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition">
+Hủy
+</button>
+<button type="submit" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition">
+Thêm chi tiêu
+</button>
+</div>
+</form>
+</div>
+
+<!-- Recent Transactions -->
+<div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-semibold text-gray-900">Giao dịch gần đây</h2>
+<button class="text-primary hover:text-primary/80 text-sm font-medium">Xem tất cả</button>
+</div>
+<div id="recentTransactions" class="space-y-4">
+<!-- Transactions will be populated by JavaScript -->
+</div>
+</div>
+
+<!-- Expense Analysis Chart -->
+<div class="bg-white rounded-lg shadow-sm p-6">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-semibold text-gray-900">Phân tích chi tiêu</h2>
+<div class="flex space-x-2">
+<button class="px-3 py-1 text-sm bg-primary text-white rounded-full">Tháng này</button>
+<button class="px-3 py-1 text-sm text-gray-500 hover:bg-gray-100 rounded-full">Tuần này</button>
+<button class="px-3 py-1 text-sm text-gray-500 hover:bg-gray-100 rounded-full">Năm nay</button>
+</div>
+</div>
+<div id="expenseChart" class="h-80"></div>
+</div>
+</div>
+</main>
+</div>
+
+<script>
+// Sample data
+let expenses = [
+{ id: 1, description: "Ăn trưa tại nhà hàng ABC", amount: 180000, category: "food", date: "2025-01-15", note: "Ăn trưa với đồng nghiệp" },
+{ id: 2, description: "Xăng xe", amount: 200000, category: "transport", date: "2025-01-15", note: "Đổ xăng tại cây xăng" },
+{ id: 3, description: "Mua sắm tại siêu thị", amount: 350000, category: "shopping", date: "2025-01-14", note: "Mua thực phẩm tuần" },
+{ id: 4, description: "Xem phim", amount: 120000, category: "entertainment", date: "2025-01-14", note: "Xem phim cuối tuần" },
+{ id: 5, description: "Khám bệnh", amount: 500000, category: "health", date: "2025-01-13", note: "Khám sức khỏe định kỳ" }
+];
+
+// Category mapping
+const categoryMap = {
+food: { name: "Ăn uống", icon: "🍽️", color: "#ef4444" },
+transport: { name: "Di chuyển", icon: "🚗", color: "#3b82f6" },
+shopping: { name: "Mua sắm", icon: "🛍️", color: "#8b5cf6" },
+entertainment: { name: "Giải trí", icon: "🎬", color: "#f59e0b" },
+health: { name: "Y tế", icon: "🏥", color: "#10b981" },
+education: { name: "Giáo dục", icon: "📚", color: "#06b6d4" },
+utilities: { name: "Tiện ích", icon: "⚡", color: "#f97316" },
+other: { name: "Khác", icon: "📦", color: "#6b7280" }
+};
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', function() {
+// Set today's date as default
+document.getElementById('expenseDate').value = new Date().toISOString().split('T')[0];
+updateStats();
+renderRecentTransactions();
+renderExpenseChart();
+});
+
+// Update statistics
+function updateStats() {
+const monthlyTotal = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+document.getElementById('monthlyExpense').textContent = formatCurrency(monthlyTotal);
+document.getElementById('remainingBudget').textContent = formatCurrency(15000000 - monthlyTotal);
+document.getElementById('todayTransactions').textContent = expenses.filter(expense => expense.date === new Date().toISOString().split('T')[0]).length;
+}
+
+// Format currency
+function formatCurrency(amount) {
+return new Intl.NumberFormat('vi-VN', {
+style: 'currency',
+currency: 'VND'
+}).format(amount);
+}
+
+// Render recent transactions
+function renderRecentTransactions() {
+const container = document.getElementById('recentTransactions');
+const recentExpenses = expenses.slice(0, 5);
+container.innerHTML = '';
+
+recentExpenses.forEach(expense => {
+const category = categoryMap[expense.category];
+const transactionElement = document.createElement('div');
+transactionElement.className = 'flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0';
+transactionElement.innerHTML = `
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center rounded-full text-white mr-3" style="background-color: ${category.color}">
+${category.icon}
+</div>
+<div>
+<p class="font-medium text-gray-900">${expense.description}</p>
+<p class="text-sm text-gray-500">${formatDate(expense.date)}</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-medium text-red-500">-${formatCurrency(expense.amount)}</p>
+<p class="text-sm text-gray-500">${category.name}</p>
+</div>
+`;
+container.appendChild(transactionElement);
+});
+}
+
+// Format date
+function formatDate(dateString) {
+const date = new Date(dateString);
+return date.toLocaleDateString('vi-VN');
+}
+
+// Render expense chart
+function renderExpenseChart() {
+const chart = echarts.init(document.getElementById('expenseChart'));
+const categoryTotals = {};
+
+expenses.forEach(expense => {
+if (!categoryTotals[expense.category]) {
+categoryTotals[expense.category] = 0;
+}
+categoryTotals[expense.category] += expense.amount;
+});
+
+const chartData = Object.entries(categoryTotals).map(([category, amount]) => ({
+name: categoryMap[category].name,
+value: amount,
+itemStyle: { color: categoryMap[category].color }
+}));
+
+const option = {
+tooltip: {
+trigger: 'item',
+formatter: '{a} <br/>{b}: {c} ({d}%)'
+},
+legend: {
+orient: 'vertical',
+left: 'left',
+textStyle: {
+color: '#1f2937'
+}
+},
+series: [
+{
+name: 'Chi tiêu',
+type: 'pie',
+radius: '50%',
+data: chartData,
+emphasis: {
+itemStyle: {
+shadowBlur: 10,
+shadowOffsetX: 0,
+shadowColor: 'rgba(0, 0, 0, 0.5)'
+}
+}
+]
+};
+
+chart.setOption(option);
+}
+
+// Handle form submission
+document.getElementById('expenseForm').addEventListener('submit', function(e) {
+e.preventDefault();
+const description = document.getElementById('expenseDescription').value;
+const amount = parseInt(document.getElementById('expenseAmount').value);
+const category = document.getElementById('expenseCategory').value;
+const date = document.getElementById('expenseDate').value;
+const note = document.getElementById('expenseNote').value;
+
+if (!description || !amount || !category || !date) {
+alert('Vui lòng điền đầy đủ thông tin');
+return;
+}
+
+const newExpense = {
+id: expenses.length + 1,
+description,
+amount,
+category,
+date,
+note
+};
+
+expenses.unshift(newExpense);
+updateStats();
+renderRecentTransactions();
+renderExpenseChart();
+
+// Reset form
+document.getElementById('expenseForm').reset();
+document.getElementById('expenseDate').value = new Date().toISOString().split('T')[0];
+
+// Show success message
+const successMessage = document.createElement('div');
+successMessage.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+successMessage.textContent = 'Thêm chi tiêu thành công!';
+document.body.appendChild(successMessage);
+setTimeout(() => {
+successMessage.remove();
+}, 3000);
+});
+
+// Auto-categorize based on description
+document.getElementById('expenseDescription').addEventListener('input', function() {
+const description = this.value.toLowerCase();
+const categorySelect = document.getElementById('expenseCategory');
+
+// Simple keyword matching for auto-categorization
+if (description.includes('ăn') || description.includes('cơm') || description.includes('nhà hàng') || description.includes('cafe')) {
+categorySelect.value = 'food';
+} else if (description.includes('xăng') || description.includes('taxi') || description.includes('grab') || description.includes('xe')) {
+categorySelect.value = 'transport';
+} else if (description.includes('mua') || description.includes('siêu thị') || description.includes('shop')) {
+categorySelect.value = 'shopping';
+} else if (description.includes('phim') || description.includes('game') || description.includes('giải trí')) {
+categorySelect.value = 'entertainment';
+} else if (description.includes('khám') || description.includes('bệnh') || description.includes('thuốc')) {
+categorySelect.value = 'health';
+} else if (description.includes('học') || description.includes('sách') || description.includes('khóa học')) {
+categorySelect.value = 'education';
+} else if (description.includes('điện') || description.includes('nước') || description.includes('internet')) {
+categorySelect.value = 'utilities';
+}
+});
+</script>
+</body>
+</html>
